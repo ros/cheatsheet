@@ -120,10 +120,9 @@
 \texttt{\href{http://www.ros.org/wiki/rospack}{rospack}}/\texttt{rosstack} & A tool inspecting \href{http://www.ros.org/wiki/Packages}{packages}/\href{http://www.ros.org/wiki/Stack}{stacks}. \\
 \texttt{roscd} & Changes directories to a package or stack. \\
 \texttt{rosls} & Lists package or stack information. \\
-\texttt{\href{http://www.ros.org/wiki/roscreate}{roscreate}-pkg} & Creates a new ROS package. \\
-\texttt{\href{http://www.ros.org/wiki/roscreate}{roscreate}-stack} & Creates a new ROS stack.\\
+\texttt{\href{http://www.ros.org/wiki/catkin}{catkin\_create\_pkg}} & Creates a new ROS package. \\
 \texttt{\href{http://www.ros.org/wiki/rosdep}{rosdep}} & Installs ROS package system dependencies.\\
-\texttt{\href{http://www.ros.org/wiki/rosmake}{rosmake}} & Builds a ROS package.\\
+\texttt{\href{http://www.ros.org/wiki/catkin}{catkin\_make}} & Builds a ROS Catkin package (Run at the root of your workspace).\\
 \texttt{\href{http://www.ros.org/wiki/roswtf}{roswtf}} & Displays a errors and warnings about a running ROS system or launch file.\\
 \texttt{\href{http://www.ros.org/wiki/rxdeps}{rxdeps}} & Displays package structure and dependencies.\\
 \end{tabular}
@@ -133,8 +132,8 @@ Us\=age:\\
 \> \texttt{\$ rospack find [package]}\\  
 \> \texttt{\$ roscd [package[/subdir]]}\\
 \> \texttt{\$ rosls [package[/subdir]]}\\
-\> \texttt{\$ roscreate-pkg [package\_name]}\\
-\> \texttt{\$ rosmake [package]}\\
+\> \texttt{\$ catkin\_create\_pkg [package\_name]}\\
+\> \texttt{\$ catkin\_make}\\
 \> \texttt{\$ rosdep install [package]}\\
 \> \texttt{\$ roswtf or roswtf [file]}\\
 \> \texttt{\$ rxdeps [options]}
@@ -329,6 +328,8 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rosbag play -a demo\_log.bag}\\
 \> Replay several bag files at once:\\
 \> \>\texttt{\$ rosbag play demo1.bag demo2.bag}\\
+\> Replay bag at half speed:\\
+\> \>\texttt{\$ rosbag play demo1.bag -r 0.5}\\
 \end{tabbing}
 
 \vspace{-2.5 mm}
@@ -415,7 +416,7 @@ Us\=age:\\
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
 
-Copyright \copyright\ 2010 Willow Garage
+Copyright \copyright\ 2013 Willow Garage
 \vspace{3000 mm}
 
 
