@@ -346,18 +346,16 @@ Us\=age:\\
 \end{tabbing}
 
 \vspace{-1.5 mm}
-\subsection{\href{http://wiki.ros.org/rxtools}{rxplot}}
-A tool for plotting data from one or more ROS topic fields using matplotlib.\\
+\subsection{\href{http://wiki.ros.org/rqt\_plot}{rqt\_plot}}
+A tool for plotting data from one or more ROS topic fields using different plotting backends.\\
 \vspace{2.5 mm}
-\includegraphics[width=.75\columnwidth]{rxplot.png}
+\includegraphics[width=.75\columnwidth]{rqt_plot.png}
 \begin{tabbing}
 E\=x\=amples:\\
-\> To graph the data in different plots:\\
-\> \>\texttt{\$ rxplot /topic1/field1 /topic2/field2}\\
-\> To graph the data all on the same plot:\\
-\> \>\texttt{\$ rxplot /topic1/field1,/topic2/field2}\\
+\> To graph multiple data:\\
+\> \>\texttt{\$ rqt\_plot /turtle1/pose/x /turtle1/pose/y}\\
 \> To graph multiple fields of a message:\\
-\> \>\texttt{\$ rxplot /topic1/field1:field2:field3}\\
+\> \>\texttt{\$ rqt\_plot /turtle1/pose/x:y}\\
 \end{tabbing}
 
 \vspace{-1.5 mm}
