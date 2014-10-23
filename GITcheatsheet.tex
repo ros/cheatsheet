@@ -1,0 +1,268 @@
+\documentclass[10pt,landscape]{article}
+\usepackage[usenames,dvips,pdftex]{color}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[pdftex]{color,graphicx}
+\usepackage[landscape]{geometry}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, filecolor=black, linkcolor=black, urlcolor=blue, citecolor=black}
+\graphicspath{{./images/}}
+
+
+% To make this come out properly in landscape mode, do one of the following
+% 1.
+%  pdflatex latexsheet.tex
+%
+% 2.
+%  latex latexsheet.tex
+%  dvips -P pdf  -t landscape latexsheet.dvi
+%  ps2pdf latexsheet.ps
+
+
+% If you're reading this, be prepared for confusion.  Making this was
+% a learning experience for me, and it shows.  Much of the placement
+% was hacked in; if you make it better, let me know...
+
+
+% 2008-04
+% Changed page margin code to use the geometry package. Also added code for
+% conditional page margins, depending on paper size. Thanks to Uwe Ziegenhagen
+% for the suggestions.
+
+% 2006-08
+% Made changes based on suggestions from Gene Cooperman. <gene at ccs.neu.edu>
+
+
+% To Do:
+% \listoffigures \listoftables
+% \setcounter{secnumdepth}{0}
+
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+	{ \geometry{top=.40in,left=.5in,right=.5in,bottom=.40in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+
+% Turn off header and footer
+\pagestyle{empty}
+ 
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-0mm} %plus -.5mm minus -.5mm}%
+                                {0.5mm}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-0mm}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1mm}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+\raggedright
+\footnotesize
+\begin{multicols}{2}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{\textbf{git/hub Cheat Sheet}} \\
+\end{center}
+\newlength{\MyLen}
+\settowidth{\MyLen}{\texttt{letterpaper}/\texttt{a4paper} \ }
+
+%\section{Filesystem Concepts}
+%\begin{tabular}{@{}p{\the\MyLen}%
+ %               @{}p{\linewidth-\the\MyLen}@{}}
+%\texttt{\href{http://www.ros.org/wiki/Packages}{package}}   & The lowest level of ROS software organization. \\
+%\texttt{\href{http://www.ros.org/wiki/Manifest}{manifest}}  & Description of a ROS package. \\
+%\texttt{\href{http://www.ros.org/wiki/Stack}{stack}} & Collections of ROS packages that form a higher-level library. \\
+%\texttt{\href{http://www.ros.org/wiki/Stack Manifest}{stack manifest}}  & Description of a ROS stack.
+%\end{tabular}
+
+The purpose of this cheat sheet is to encourage people to start your
+project from forking other's repository, not to write
+a YET-ANOTHER-ROBOTICS-PACKAGE from scratch.
+
+If you like to know git command itself, please see
+\href{https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf}{GIT
+  CHEAT SHEET} from \texttt{training.github.com/kit}.
+
+\vspace{2.5mm}
+\section{Configure User Information}
+\vspace{2.5mm}
+
+1. Create \href{http://github.com}{github} account from
+\href{https://github.com/join}{https://github.com/join}.
+
+\vspace{3mm}
+2. Install \href{https://github.com/github/hub}{hub} command.
+\begin{tabbing}
+hu\=b uses \href{http://golang.org/doc/install}{Go development
+  environment} to install.\\
+\> \texttt{\$ sudo apt-get install golang git-core}\\
+\> \texttt{\$ git clone https://github.com/github/hub.git}\\
+\> \texttt{\$ cd hub}\\
+\> \texttt{\$ ./script/build}\\
+\> \texttt{\$ sudo cp hub /usr/local/bin}\\
+\end{tabbing}
+
+3. Configure user information for your local environment.
+
+\begin{tabbing}
+Se\=ts the name you want to attached to your commit transactions.\\
+\> \texttt{\$ git config --global user.name "[name]"}\\  
+Sets the email you want to attached to your commit transactions.\\
+\> \texttt{\$ git config --global user.email "[email address]"}\\  
+Let git to keep a password cashed in memory instead of asking users
+every time.\\
+\> \texttt{\$ git config --global credential.helper "cache --timeout=3600"}\\  
+\end{tabbing}
+
+\section{Start Your Project}
+\vspace{2.5mm}
+
+Find any of related project, search
+\href{http://www.google.com}{google}, look for
+\href{http://wiki.ros.org/}{roswiki}, ask
+\href{http://answers.ros.org/questions/}{answers.ros.org}. 
+In this cheat sheet, we'll start our project from \href{http://github.com/ros/cheatsheet}{http://github.com/ros/cheatsheet}.
+
+\begin{tabbing}
+Cl\=one the project.\\
+\> \texttt{\$ hub clone ros/cheatsheet}\\  
+Fork the project.\\
+\> \texttt{\$ hub fork}\\ 
+Type \texttt{hub remote -v} to confirm what was happened.\\
+\end{tabbing}
+
+\section{Add New Features, Fix Bugs}
+\vspace{2.5mm}
+
+Anytime you write your code, please keep your mind ``When your code is
+getting both better and simpler, that is when you know it's
+right (From The Cathedral and the Bazaar)''.
+
+\begin{tabbing}
+Cr\=eate branch for your work.\\
+\> \texttt{\$ git branch -b new\_features}\\  
+Write code, check diffs.\\
+\> \texttt{\$ git diff}\\ 
+If you added new file, add to repository.\\
+\> \texttt{\$ git add [file]}\\ 
+Check the current status.\\
+\> \texttt{\$ git status}\\ 
+Revert the file.\\
+\> \texttt{\$ git checkout [file]}\\ 
+Delete all un-commited files.\\
+\> \texttt{\$ git clean -fd}\\ 
+Delete everything you worked. CAUTION this remove all of
+you change, even if you commited.\\
+\> \texttt{\$ git reset --hard origin/master}\\ 
+List version history\\
+\> \texttt{\$ git log}\\ 
+Commit the changes, do not write fix/update/hoge/fuga/ in messages.\\
+\> \texttt{\$ git commit -m "descriptable messages"}
+\end{tabbing}
+
+\section{Send Pull Request}
+\vspace{2.5mm}
+It is good idea to create Pull Request and get
+feed back, and let CI like jenkins/travis to check your code.
+If you're still under working, just write so in the message.
+\begin{tabbing}
+Pu\=sh branch to your github repository.\\
+\> \texttt{\$ git push YOUR\_USER new\_features}\\  
+Create Pull Request.\\
+\> \texttt{\$ hub pull-request}\\  
+If you wan to confirm on browser.\\
+\> \texttt{\$ hub browse -- pulls}\\  
+\end{tabbing}
+
+\section{If You Get Lost}
+\vspace{2.5mm}
+\begin{tabbing}
+If \=you do not know what you are doing.\\
+\> \texttt{\$ git stash}\\
+\> \texttt{\$ git checkout master}\\
+\> \texttt{\$ git fetch --all}\\
+\> \texttt{\$ git reset --hard origin master}\\  
+\end{tabbing}
+
+\begin{tabbing}
+If \=you w\=ant to delete unnecessary branches\\
+\> \texttt{\$ git fetch --all}\\
+\> \texttt{\$ git checkout master}\\
+\> \texttt{\$ git pull origin master}\\
+\> \texttt{\$ git branch -r --merged |  grep YOUR\_USER |  grep -v '>' |  grep -v master |  xargs -L1}\\
+\>\> \texttt{|  cut -d"/" -f2- |xargs -n1 git push --delete YOUR\_USER}\\
+\> \texttt{\$git branch --merged | grep -v "\textbackslash *" | xargs -n 1 git branch -d}\\
+\end{tabbing}
+
+\begin{tabbing}
+If \=someone ask you to `please rebase your commit` or `please merge master`\\
+\> \texttt{\$ git checkout new\_features}\\  
+\> \texttt{\$ git fetch --all}\\
+\> \texttt{\$ git rebase origin/master}\\
+\> \texttt{\$ git push YOUR\_USER new\_features}\\  
+\end{tabbing}
+
+\begin{tabbing}
+If \=you want to remove your embarrassing commit history %(Kuro Rekisi), 
+,you can modify last N commits by\\
+\> \texttt{\$ git rebase -i HEAD\textasciitilde<N>}\\
+and, force update to your repository. CAUTION!!! This will remove your
+previous commits on github!!!\\
+\> \texttt{\$ git push -f YOUR\_USER new\_features}\\  
+\end{tabbing}
+------------------\\
+\scriptsize
+This work is licensed under the Creative Commons Attribution 4.0
+International License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by/4.0/.
+
+Copyright \copyright\ 2014 Kei Okada
+%\vspace{3000 mm}
+
+\end{multicols}
+\newpage
+
+\begin{center}
+paste a ``Re-Inventing the Wheel'' comic from
+http://www.willowgarage.com/sites/default/files/blog/201004/willow\_p1\_02s.jpg
+\end{center}
+
+\end{document}

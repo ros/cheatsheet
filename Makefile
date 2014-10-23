@@ -4,20 +4,21 @@ BIBTEX = bibtex
 DVIPS = dvips
 PS2PDF = ps2pdf
 
-CHEAT_NAME = ROScheatsheet
+ROS_CHEAT_NAME = ROScheatsheet
+GIT_CHEAT_NAME = GITcheatsheet
 
 PDF_FILES = $(subst dia,pdf,$(shell ls images/*.dia))
 
-all: $(PDF_FILES) $(CHEAT_NAME).pdf
+all: $(PDF_FILES) $(ROS_CHEAT_NAME).pdf $(GIT_CHEAT_NAME).pdf
 
 
-$(CHEAT_NAME).pdf: $(CHEAT_NAME).tex $(PNG_FILES)
+%.pdf: %.tex $(PNG_FILES)
 	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
 
-$(CHEAT_NAME).dvi: $(CHEAT_NAME).tex 
+%.dvi: %.tex 
 	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
 
-$(CHEAT_NAME).ps: $(CHEAT_NAME).dvi
+%.ps: dvi
 	$(DVIPS) -P pdf -f -t a4 $(CHEAT_NAME).dvi > $@
 
 display: $(BASE_NAME).pdf
@@ -30,8 +31,8 @@ display: $(BASE_NAME).pdf
 	epstopdf $<
 
 clean:
-	rm -f $(CHEAT_NAME).ps $(CHEAT_NAME).dvi $(CHEAT_NAME).log \
-	      $(CHEAT_NAME).aux $(CHEAT_NAME).blg $(CHEAT_NAME).toc \
-              missfont.log $(CHEAT_NAME).bbl $(CHEAT_NAME).pdf \
-              $(CHEAT_NAME).out
+	rm -f *.ps *.dvi *.log \
+	      *.aux *.blg *.toc \
+              missfont.log *.bbl *.pdf \
+              *.out
 
