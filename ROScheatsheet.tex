@@ -420,19 +420,7 @@ Us\=age:\\
 
 \section{catkin Build Tools}
 
-\subsection{\href{http://wiki.ros.org/catkin/Tutorials/create\_a\_workspace}{catkin\_init\_workspace}}
-\vspace{-.5 mm}
-A tool to create a workspace for catkin.
-\vspace{-2.5 mm}
-\begin{tabbing}
-E\=x\=amples:\\
-\> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
-\> \texttt{\$ mkdir -p ~/catkin\_ws/src}\\
-\> \texttt{\$ cd ~/catkin\_ws/src}\\
-\> \texttt{\$ catkin\_init\_workspace}\\
-\end{tabbing}
 
-\vspace{-5.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}}
 \vspace{-.5 mm}
 A tool to create ROS package.
@@ -444,7 +432,9 @@ U\=sage:\\
 \vspace{-10 mm}
 \begin{tabbing}
 E\=x\=amples:\\
-\> \texttt{\$ cd ~/catkin\_ws/src}\\
+\> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
+\> \texttt{\$ mkdir -p \textasciitilde/catkin\_ws/src}\\
+\> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_create\_pkg beginner\_tutorials std\_msgs rospy roscpp}\\
 \end{tabbing}
 
