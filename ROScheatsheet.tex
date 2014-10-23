@@ -325,7 +325,7 @@ E\=x\=amples:\\
 \> Record select topics:\\
 \> \>\texttt{\$ rosbag record topic1 topic2}\\
 \end{tabbing}
-\vspace{-1.5mm}
+\vspace{-2.0mm}
 {\bf rosbag play} will take the contents of one or more bag file, and play them back in a time-synchronized fashion.
 \begin{tabbing}
 E\=x\=amples:\\
@@ -390,25 +390,26 @@ Us\=age:\\
 \section{tf Command-line Tools}
 
 \subsection{\href{http://wiki.ros.org/tf\#tf_echo}{tf\_echo}}
-A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.\\
-\vspace{2.5 mm}
+\vspace{-2.5 mm}
+A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.
+\vspace{-7.5 mm}
 %\includegraphics[width=.75\columnwidth]{rxconsole.png}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
 \end{tabbing}
+\vspace{-17.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> To echo the transform between /map and /odom:\\
 \> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
 \end{tabbing}
 
-
-
-\vspace{-1.5 mm}
+\vspace{-10 mm}
 \subsection{\href{http://wiki.ros.org/tf\#view_frames}{view\_frames}}
-A tool for visualizing the full tree of coordinate transforms.\\
-\vspace{2.5 mm}
+\vspace{-2.5 mm}
+A tool for visualizing the full tree of coordinate transforms.
+\vspace{-7.5 mm}
 %\includegraphics[width=.75\columnwidth]{rxconsole.png}
 \begin{tabbing}
 Us\=age:\\
@@ -417,12 +418,12 @@ Us\=age:\\
 \end{tabbing}
 
 
-
-\section{catkin Build tools}
+\section{catkin Build Tools}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/create\_a\_workspace}{catkin\_init\_workspace}}
+\vspace{-2.5 mm}
 A tool to create a workspace for catkin.
-\vspace{2.5 mm}
+\vspace{-7.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
@@ -431,42 +432,48 @@ E\=x\=amples:\\
 \> \texttt{\$ catkin\_init\_workspace}\\
 \end{tabbing}
 
+\vspace{-7.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}}
-A tool to create ROS package
-\vspace{2.5 mm}
+\vspace{-2.5 mm}
+A tool to create ROS package.
+\vspace{-7.5 mm}
 \begin{tabbing}
 U\=sage:\\
-\> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2] [depend3]}\\
+\> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2]}\\
 \end{tabbing}
+\vspace{-17.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_create\_pkg beginner\_tutorials std\_msgs rospy roscpp}\\
 \end{tabbing}
 
+\vspace{-7.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}}
-A tool to manage several SCM repositories based on a single workspace
+\vspace{-2.5 mm}
+A tool to manage several SCM repositories based on a single workspace.
 definition file (.rosinstall).
-\vspace{2.5 mm}
+\vspace{-7.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws/src}\\
 \> \texttt{\$ wstool init}\\
-\> \texttt{\$ wstool set ros\_tutorials --git  git://github.com/ros/ros\_tutorials.git}\\
+\> \texttt{\$ wstool set ros\_tutorials --git}\\  
+\>\> \texttt{~~~~~git://github.com/ros/ros\_tutorials.git}\\
 \> \texttt{\$ wstool update}\\
 \end{tabbing}
 
+\vspace{-7.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make}}
+\vspace{-2.5 mm}
 A tool to build code in a catkin workspace.
-\vspace{2.5 mm}
+\vspace{-7.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws}\\
 \> \texttt{\$ catkin\_make}\\
-\> \texttt{\$ source ~/devel/setup.bash}\\
+\> \texttt{\$ source \textasciitilde/devel/setup.bash}\\
 \end{tabbing}
-
-
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
 
