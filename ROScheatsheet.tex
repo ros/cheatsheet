@@ -418,8 +418,53 @@ Us\=age:\\
 
 
 
+\section{catkin Build tools}
 
+\subsection{\href{http://wiki.ros.org/catkin/Tutorials/create\_a\_workspace}{catkin\_init\_workspace}}
+A tool to create a workspace for catkin.
+\vspace{2.5 mm}
+\begin{tabbing}
+E\=x\=amples:\\
+\> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
+\> \texttt{\$ mkdir -p ~/catkin\_ws/src}\\
+\> \texttt{\$ cd ~/catkin\_ws/src}\\
+\> \texttt{\$ catkin\_init\_workspace}\\
+\end{tabbing}
 
+\subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}}
+A tool to create ROS package
+\vspace{2.5 mm}
+\begin{tabbing}
+U\=sage:\\
+\> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2] [depend3]}\\
+\end{tabbing}
+\begin{tabbing}
+E\=x\=amples:\\
+\> \texttt{\$ cd ~/catkin\_ws/src}\\
+\> \texttt{\$ catkin\_create\_pkg beginner\_tutorials std\_msgs rospy roscpp}\\
+\end{tabbing}
+
+\subsection{\href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}}
+A tool to manage several SCM repositories based on a single workspace
+definition file (.rosinstall).
+\vspace{2.5 mm}
+\begin{tabbing}
+E\=x\=amples:\\
+\> \texttt{\$ cd ~/catkin\_ws/src}\\
+\> \texttt{\$ wstool init}\\
+\> \texttt{\$ wstool set ros\_tutorials --git  git://github.com/ros/ros\_tutorials.git}\\
+\> \texttt{\$ wstool update}\\
+\end{tabbing}
+
+\subsection{\href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make}}
+A tool to build code in a catkin workspace.
+\vspace{2.5 mm}
+\begin{tabbing}
+E\=x\=amples:\\
+\> \texttt{\$ cd ~/catkin\_ws}\\
+\> \texttt{\$ catkin\_make}\\
+\> \texttt{\$ source ~/devel/setup.bash}\\
+\end{tabbing}
 
 
 \rule{0.3\linewidth}{0.25pt}
