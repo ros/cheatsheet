@@ -390,26 +390,26 @@ Us\=age:\\
 \section{tf Command-line Tools}
 
 \subsection{\href{http://wiki.ros.org/tf\#tf_echo}{tf\_echo}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 %\includegraphics[width=.75\columnwidth]{rxconsole.png}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
 \end{tabbing}
-\vspace{-17.5 mm}
+\vspace{-10 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> To echo the transform between /map and /odom:\\
 \> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
 \end{tabbing}
 
-\vspace{-10 mm}
+\vspace{-5.5 mm}
 \subsection{\href{http://wiki.ros.org/tf\#view_frames}{view\_frames}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool for visualizing the full tree of coordinate transforms.
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 %\includegraphics[width=.75\columnwidth]{rxconsole.png}
 \begin{tabbing}
 Us\=age:\\
@@ -421,9 +421,9 @@ Us\=age:\\
 \section{catkin Build Tools}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/create\_a\_workspace}{catkin\_init\_workspace}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool to create a workspace for catkin.
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
@@ -432,28 +432,28 @@ E\=x\=amples:\\
 \> \texttt{\$ catkin\_init\_workspace}\\
 \end{tabbing}
 
-\vspace{-7.5 mm}
+\vspace{-5.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool to create ROS package.
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 \begin{tabbing}
 U\=sage:\\
 \> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2]}\\
 \end{tabbing}
-\vspace{-17.5 mm}
+\vspace{-10 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_create\_pkg beginner\_tutorials std\_msgs rospy roscpp}\\
 \end{tabbing}
 
-\vspace{-7.5 mm}
+\vspace{-5.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool to manage several SCM repositories based on a single workspace.
 definition file (.rosinstall).
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws/src}\\
@@ -463,23 +463,25 @@ E\=x\=amples:\\
 \> \texttt{\$ wstool update}\\
 \end{tabbing}
 
-\vspace{-7.5 mm}
+\vspace{-5.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make}}
-\vspace{-2.5 mm}
+\vspace{-.5 mm}
 A tool to build code in a catkin workspace.
-\vspace{-7.5 mm}
+\vspace{-2.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd ~/catkin\_ws}\\
 \> \texttt{\$ catkin\_make}\\
 \> \texttt{\$ source \textasciitilde/devel/setup.bash}\\
 \end{tabbing}
-\rule{0.3\linewidth}{0.25pt}
+\vspace{-5mm}
+\begin{flushright}
+\includegraphics[width=.33\columnwidth]{ros_logo.eps}
+\end{flushright}
+------------
 \scriptsize
 
 Copyright \copyright\ 2010 Willow Garage
-\vspace{3000 mm}
-
 
 \end{multicols}
 \end{document}
