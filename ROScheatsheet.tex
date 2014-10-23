@@ -119,6 +119,8 @@
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{\href{http://wiki.ros.org/rospack}{rospack}}/\texttt{rosstack} & A tool inspecting \href{http://wiki.ros.org/Packages}{packages}/\href{http://wiki.ros.org/rosbuild/Stacks}{stacks}. \\
 \texttt{\href{http://wiki.ros.org/rosbash\#roscd}{roscd}} & Changes directories to a package or stack. \\
+\texttt{\href{http://wiki.ros.org/rosbash\#rospd}{rospd}} & \href{http://ftp.gnu.org/old-gnu/Manuals/bash-2.05a/html\_node/bashref\_73.html}{pushd} equivalent of \href{http://wiki.ros.org/rosbash\#roscd}{roscd}. \\
+\texttt{\href{http://wiki.ros.org/rosbash\#rosd}{rosd}} & Lists directories in the directory-stack. \\
 \texttt{\href{http://wiki.ros.org/rosbash\#rosls}{rosls}} & Lists package or stack information. \\
 \texttt{\href{http://wiki.ros.org/roscreate}{roscreate}-pkg} & Creates a new ROS package. \\
 \texttt{\href{http://wiki.ros.org/roscreate}{roscreate}-stack} & Creates a new ROS stack.\\
@@ -131,9 +133,13 @@
 Us\=age:\\
 \> \texttt{\$ rospack find [package]}\\  
 \> \texttt{\$ roscd [package[/subdir]]}\\
+\> \texttt{\$ rospd [package[/subdir] | +N | -N]}\\
+\> \texttt{\$ rosd}\\
 \> \texttt{\$ rosls [package[/subdir]]}\\
 \> \texttt{\$ roscreate-pkg [package\_name]}\\
 \> \texttt{\$ rosmake [package]}\\
+\> \texttt{\$ rosed [package] [file]}\\
+\> \texttt{\$ roscp [package] [file] [destination]}\\
 \> \texttt{\$ rosdep install [package]}\\
 \> \texttt{\$ roswtf or roswtf [file]}\\
 \end{tabbing}
