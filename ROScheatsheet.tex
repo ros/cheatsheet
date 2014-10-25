@@ -167,14 +167,14 @@ Us\=age:\\
 \section{Common Command-line Tools}
 \subsection{\href{http://wiki.ros.org/roscore}{roscore}}
 A collection of \href{http://wiki.ros.org/Nodes}{nodes} and programs that are pre-requisites of a ROS-based system. You must have a roscore running in order for ROS nodes to communicate.\\
-\vspace{-1.5mm}
-\begin{tabbing}
-ro\=score is currently defined as:\\
-\> \texttt{\href{http://wiki.ros.org/Master}{master}}\\
-\> \texttt{\href{http://wiki.ros.org/Parameter Server}{parameter server}}\\
-\> \texttt{\href{http://wiki.ros.org/rosout}{rosout}}
-\end{tabbing}
-\vspace{-5mm}
+%% \vspace{-1.5mm}
+%% \begin{tabbing}
+%% ro\=score is currently defined as:\\
+%% \> \texttt{\href{http://wiki.ros.org/Master}{master}}\\
+%% \> \texttt{\href{http://wiki.ros.org/Parameter Server}{parameter server}}\\
+%% \> \texttt{\href{http://wiki.ros.org/rosout}{rosout}}
+%% \end{tabbing}
+%% \vspace{-5mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ roscore}
@@ -228,21 +228,21 @@ E\=x\=amples:\\
 
 
 
-\vspace{-1.5 mm}
+\vspace{-2.5 mm}
 \subsection{\href{http://wiki.ros.org/rosrun}{rosrun}}
 rosrun allows you to run an executable in an arbitrary package without having to cd (or roscd) there first.\\
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rosrun package executable}
 \end{tabbing}
-\vspace{-3.5mm}
+\vspace{-5mm}
 \begin{tabbing}
 E\=x\=ample:\\
 \> Run turtlesim:\\
 \> \> \texttt{\$ rosrun turtlesim turtlesim\_node}\\
 \end{tabbing}
 
-\vspace{-1.5 mm}
+\vspace{-2.5 mm}
 \subsection{\href{http://wiki.ros.org/roslaunch}{roslaunch}}
 Starts ROS nodes locally and remotely via SSH, as well as setting parameters on the parameter server.\\
 \begin{tabbing}
@@ -311,7 +311,7 @@ E\=x\=amples:\\
 \vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
 A tool for getting and setting ROS \href{http://wiki.ros.org/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
-\vspace{2.5 mm}
+\vspace{0.5 mm}
 Commands: \\ 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -343,7 +343,7 @@ A tool that prints the information about a particular transformation between a s
 Us\=age:\\
 \> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
 \end{tabbing}
-\vspace{-10 mm}
+\vspace{-9 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> To echo the transform between /map and /odom:\\
