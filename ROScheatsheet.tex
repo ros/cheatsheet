@@ -181,6 +181,30 @@ Us\=age:\\
 \end{tabbing}
 
 \vspace{-1.5 mm}
+\subsection{\href{http://wiki.ros.org/rosnode}{rosnode}}
+Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
+\vspace{2.5 mm}
+Commands: \\ 
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosnode ping}    & Test connectivity to node. \\
+\texttt{rosnode list}    & List active nodes. \\
+\texttt{rosnode info}    & Print information about a node. \\
+\texttt{rosnode machine} & List nodes running on a particular machine. \\
+\texttt{rosnode kill}    & Kills a running node. 
+\end{tabular}
+\begin{tabbing}
+E\=x\=amples:\\
+\> Kill all nodes:\\
+\> \> \texttt{\$ rosnode kill -a}\\
+\> List nodes on a machine:\\
+\> \> \texttt{\$ rosnode machine aqy.local}\\
+\> Ping all nodes:\\
+\> \> \texttt{\$ rosnode ping --all} 
+\end{tabbing}
+
+
+\vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/rosmsg}{rosmsg/rossrv}}
 rosmsg/rossrv displays Message/Service (msg/srv) data structure definitions.\\
 Commands: \\
@@ -217,30 +241,6 @@ E\=x\=ample:\\
 \> Run turtlesim:\\
 \> \> \texttt{\$ rosrun turtlesim turtlesim\_node}\\
 \end{tabbing}
-
-\vspace{-1.5 mm}
-\subsection{\href{http://wiki.ros.org/rosnode}{rosnode}}
-Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
-\vspace{2.5 mm}
-Commands: \\ 
-\begin{tabular}{@{}p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{rosnode ping}    & Test connectivity to node. \\
-\texttt{rosnode list}    & List active nodes. \\
-\texttt{rosnode info}    & Print information about a node. \\
-\texttt{rosnode machine} & List nodes running on a particular machine. \\
-\texttt{rosnode kill}    & Kills a running node. 
-\end{tabular}
-\begin{tabbing}
-E\=x\=amples:\\
-\> Kill all nodes:\\
-\> \> \texttt{\$ rosnode kill -a}\\
-\> List nodes on a machine:\\
-\> \> \texttt{\$ rosnode machine aqy.local}\\
-\> Ping all nodes:\\
-\> \> \texttt{\$ rosnode ping --all} 
-\end{tabbing}
-
 
 \vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/roslaunch}{roslaunch}}
@@ -284,30 +284,6 @@ E\=x\=amples:\\
 \end{tabbing}
 
 \vspace{-1.5 mm}
-\subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
-A tool for getting and setting ROS \href{http://wiki.ros.org/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
-\vspace{2.5 mm}
-Commands: \\ 
-\begin{tabular}{@{}p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{rosparam set}    & Set a parameter. \\
-\texttt{rosparam get}    & Get a parameter. \\
-\texttt{rosparam load}   & Load parameters from a file. \\
-\texttt{rosparam dump}   & Dump parameters to a file. \\
-\texttt{rosparam delete} & Delete a parameter. \\
-\texttt{rosparam list}   & List parameter names. 
-\end{tabular}
-\begin{tabbing}
-E\=x\=amples:\\
-\> List all the parameters in a namespace:\\
-\> \>\texttt{\$ rosparam list /namespace}\\
-\> Setting a list with one as a string, integer, and float:\\
-\> \>\texttt{\$ rosparam set /foo "['1', 1, 1.0]"}\\
-\> Dump only the parameters in a specific namespace to file:\\
-\> \>\texttt{\$ rosparam dump dump.yaml /namespace}
-\end{tabbing}
-
-\vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/rosservice}{rosservice}}
 A tool for listing and querying ROS services.\\
 \vspace{2.5 mm}
@@ -331,6 +307,61 @@ E\=x\=amples:\\
 \> Display all services of a particular type:\\
 \> \>\texttt{\$ rosservice find rospy\_tutorials/AddTwoInts}\\
 \end{tabbing}
+
+\vspace{-1.5 mm}
+\subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
+A tool for getting and setting ROS \href{http://wiki.ros.org/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
+\vspace{2.5 mm}
+Commands: \\ 
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosparam set}    & Set a parameter. \\
+\texttt{rosparam get}    & Get a parameter. \\
+\texttt{rosparam load}   & Load parameters from a file. \\
+\texttt{rosparam dump}   & Dump parameters to a file. \\
+\texttt{rosparam delete} & Delete a parameter. \\
+\texttt{rosparam list}   & List parameter names. 
+\end{tabular}
+\begin{tabbing}
+E\=x\=amples:\\
+\> List all the parameters in a namespace:\\
+\> \>\texttt{\$ rosparam list /namespace}\\
+\> Setting a list with one as a string, integer, and float:\\
+\> \>\texttt{\$ rosparam set /foo "['1', 1, 1.0]"}\\
+\> Dump only the parameters in a specific namespace to file:\\
+\> \>\texttt{\$ rosparam dump dump.yaml /namespace}
+\end{tabbing}
+
+\section{tf Command-line Tools}
+
+\subsection{\href{http://wiki.ros.org/tf\#tf_echo}{tf\_echo}}
+\vspace{-.5 mm}
+A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.
+\vspace{-2.5 mm}
+%\includegraphics[width=.75\columnwidth]{rxconsole.png}
+\begin{tabbing}
+Us\=age:\\
+\> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
+\end{tabbing}
+\vspace{-10 mm}
+\begin{tabbing}
+E\=x\=amples:\\
+\> To echo the transform between /map and /odom:\\
+\> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
+\end{tabbing}
+
+\vspace{-5.5 mm}
+\subsection{\href{http://wiki.ros.org/tf\#view_frames}{view\_frames}}
+\vspace{-.5 mm}
+A tool for visualizing the full tree of coordinate transforms.
+\vspace{-2.5 mm}
+%\includegraphics[width=.75\columnwidth]{rxconsole.png}
+\begin{tabbing}
+Us\=age:\\
+\> \texttt{\$ rosrun tf view\_frames}\\
+\> \texttt{\$ evince frames.pdf}
+\end{tabbing}
+
 
 \vspace{-2.5 mm}
 \section{Logging Command-line Tools}
@@ -405,38 +436,6 @@ A tool for displaying and filtering messages published on rosout.\\
 Us\=age:\\
 \> \texttt{\$ rqt\_console}\\
 \end{tabbing}
-
-\vspace{-2.5 mm}
-\section{tf Command-line Tools}
-
-\subsection{\href{http://wiki.ros.org/tf\#tf_echo}{tf\_echo}}
-\vspace{-.5 mm}
-A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.
-\vspace{-2.5 mm}
-%\includegraphics[width=.75\columnwidth]{rxconsole.png}
-\begin{tabbing}
-Us\=age:\\
-\> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
-\end{tabbing}
-\vspace{-10 mm}
-\begin{tabbing}
-E\=x\=amples:\\
-\> To echo the transform between /map and /odom:\\
-\> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
-\end{tabbing}
-
-\vspace{-5.5 mm}
-\subsection{\href{http://wiki.ros.org/tf\#view_frames}{view\_frames}}
-\vspace{-.5 mm}
-A tool for visualizing the full tree of coordinate transforms.
-\vspace{-2.5 mm}
-%\includegraphics[width=.75\columnwidth]{rxconsole.png}
-\begin{tabbing}
-Us\=age:\\
-\> \texttt{\$ rosrun tf view\_frames}\\
-\> \texttt{\$ evince frames.pdf}
-\end{tabbing}
-
 
 \ifcatkin
 \section{catkin Build Tools}
