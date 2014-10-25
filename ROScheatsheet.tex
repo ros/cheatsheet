@@ -81,6 +81,12 @@
 \setlength{\parskip}{0pt plus 0.5ex}
 
 
+% catkin or rosbuild
+\newif\ifcatkin
+\catkintrue
+%\catkinfalse
+
+
 % -----------------------------------------------------------------------
 
 \begin{document}
@@ -122,13 +128,20 @@
 \texttt{\href{http://wiki.ros.org/rosbash\#rospd}{rospd}} & \href{http://ftp.gnu.org/old-gnu/Manuals/bash-2.05a/html\_node/bashref\_73.html}{pushd} equivalent of \href{http://wiki.ros.org/rosbash\#roscd}{roscd}. \\
 \texttt{\href{http://wiki.ros.org/rosbash\#rosd}{rosd}} & Lists directories in the directory-stack. \\
 \texttt{\href{http://wiki.ros.org/rosbash\#rosls}{rosls}} & Lists package or stack information. \\
+\texttt{\href{http://wiki.ros.org/rosdep}{rosdep}} & Installs ROS package system dependencies.\\
+\texttt{\href{http://wiki.ros.org/roswtf}{roswtf}} & Displays a errors and warnings about a running ROS system or launch file.\\
+\ifcatkin
+\texttt{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}} & Creates a new ROS stack.\\
+\texttt{\href{http://wiki.ros.org/wstool}{wstool}} & Manage several SCM repositories. \\
+\texttt{\href{http://wiki.ros.org/catkin}{catkin\_make}} & Builds a ROS package.\\
+\else
 \texttt{\href{http://wiki.ros.org/roscreate}{roscreate}-pkg} & Creates a new ROS package. \\
 \texttt{\href{http://wiki.ros.org/roscreate}{roscreate}-stack} & Creates a new ROS stack.\\
-\texttt{\href{http://wiki.ros.org/rosdep}{rosdep}} & Installs ROS package system dependencies.\\
 \texttt{\href{http://wiki.ros.org/rosmake}{rosmake}} & Builds a ROS package.\\
-\texttt{\href{http://wiki.ros.org/roswtf}{roswtf}} & Displays a errors and warnings about a running ROS system or launch file.\\
+\fi
 \end{tabular}
 
+\vspace{-2.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rospack find [package]}\\  
@@ -136,15 +149,21 @@ Us\=age:\\
 \> \texttt{\$ rospd [package[/subdir] | +N | -N]}\\
 \> \texttt{\$ rosd}\\
 \> \texttt{\$ rosls [package[/subdir]]}\\
-\> \texttt{\$ roscreate-pkg [package\_name]}\\
-\> \texttt{\$ rosmake [package]}\\
 \> \texttt{\$ rosed [package] [file]}\\
 \> \texttt{\$ roscp [package] [file] [destination]}\\
 \> \texttt{\$ rosdep install [package]}\\
 \> \texttt{\$ roswtf or roswtf [file]}\\
+\ifcatkin
+\> \texttt{\$ catkin\_create\_pkg [package\_name] [depend1] [depend2]}\\
+\> \texttt{\$ wstool [init | set | update]}\\
+\> \texttt{\$ catkin\_make}\\
+\else
+\> \texttt{\$ roscreate-pkg [package\_name]}\\
+\> \texttt{\$ rosmake [package]}\\
+\fi
 \end{tabbing}
 
-\vspace{-1mm}
+\vspace{-2.5 mm}
 \section{Common Command-line Tools}
 \subsection{\href{http://wiki.ros.org/roscore}{roscore}}
 A collection of \href{http://wiki.ros.org/Nodes}{nodes} and programs that are pre-requisites of a ROS-based system. You must have a roscore running in order for ROS nodes to communicate.\\
@@ -155,6 +174,7 @@ ro\=score is currently defined as:\\
 \> \texttt{\href{http://wiki.ros.org/Parameter Server}{parameter server}}\\
 \> \texttt{\href{http://wiki.ros.org/rosout}{rosout}}
 \end{tabbing}
+\vspace{-5mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ roscore}
@@ -418,6 +438,7 @@ Us\=age:\\
 \end{tabbing}
 
 
+\ifcatkin
 \section{catkin Build Tools}
 
 
@@ -465,6 +486,9 @@ E\=x\=amples:\\
 \> \texttt{\$ source \textasciitilde/devel/setup.bash}\\
 \end{tabbing}
 \vspace{-5mm}
+
+\fi
+
 \begin{flushright}
 \includegraphics[width=.33\columnwidth]{ros_logo.eps}
 \end{flushright}
