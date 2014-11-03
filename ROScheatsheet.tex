@@ -516,6 +516,60 @@ E\=x\=amples:\\
 \> \texttt{\$ catkin\_make}\\
 \> \texttt{\$ source devel/setup.bash}\\
 \end{tabbing}
+
+\vspace{-4.5 mm}
+\subsection{\href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt}}
+\vspace{-.5 mm}
+
+\begin{tabbing}
+Y\=our CMakeLists.tx\=t file MUST follow this format otherwise\\ your
+packages will not build correctly.\\
+\> \texttt{cmake\_minimum\_required()} Specify the name of the package\\
+\> \texttt{project()} Project name which can refer as \$\{PROJECT\_NAME\}\\
+\> \texttt{find\_package()} \> Find other packages needed for build\\
+%\texttt{add\_message\_files(), add\_service\_files(), add\_action\_files()} & Message/Service/Action Generators\\
+%\texttt{generate\_messages()} & Invoke message/service/action generation\\
+\> \texttt{catkin\_package()} \> Specify package build info export\\
+%\texttt{add\_library(), add\_executable(), target\_link\_libraries()} & Libraries/Executables to build\\
+%\texttt{catkin\_add\_gtest()} & Tests to build\\
+%\texttt{install()} & Install rules\\
+\end{tabbing}
+\vspace{-3.5mm}
+{\bf Build Executables and Libraries:}\\
+Use CMake function to build executable and library targets. These
+macro should call after \texttt{catkin\_package()} to use
+\texttt{catkin\_*} variables.
+\vspace{-1.5mm}
+\begin{tabbing}
+~ \texttt{include\_directories(include \$\{catkin\_INCLUDE\_DIRS\})}\\
+~ \texttt{add\_executable(hoge src/hoge.cpp)}\\
+~ \texttt{add\_library(fuga src/fuga.cpp)}\\
+~ \texttt{target\_link\_libraries(hoge fuga \$\{catkin\_LIBRARIES\}))}\\
+\end{tabbing}
+\vspace{-3.5mm}
+{\bf Message generation:}\\
+%Your \texttt{package.xml} must contain a build and runtime dependency on
+%\texttt{message\_generation} and \texttt{message\_runtime} respectively. 
+%There are \texttt{add\_message\_files(), add\_service\_files(),
+%  add\_action\_files()} macros to handle messages,services and actions
+There are \texttt{add\_\{message,service,action\}\_files()}
+macros to handle messages,services and actions
+respectively. They must call before \texttt{catkin\_package()}.
+\vspace{-1.5mm}
+\begin{tabbing}
+~ \texttt{find\_package(catkin COMPONENTS message\_generation std\_msgs)}\\
+~ \texttt{add\_message\_files(FILES Message1.msg)}\\
+~ \texttt{generate\_messages(DEPENDENCIES std\_msgs)}\\
+~ \texttt{catkin\_package(CATKIN\_DEPENDS message\_runtime)}\\
+\end{tabbing}
+\vspace{-5mm}
+If your package builds messages as well as executables that use them,
+you need to create an explicit dependency.
+\vspace{-1.5mm}
+\begin{tabbing}
+~ \texttt{add\_dependencies(hoge \$\{PROJECT\_NAME\}\_generate\_messages\_cpp)}\\
+\end{tabbing}
+
 \vspace{-5mm}
 
 \fi
