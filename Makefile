@@ -8,11 +8,18 @@ CHEAT_NAME = ROScheatsheet
 
 PDF_FILES = $(subst dia,pdf,$(shell ls images/*.dia))
 
-all: $(PDF_FILES) $(CHEAT_NAME).pdf
+all: $(PDF_FILES) $(CHEAT_NAME)_catkin.pdf $(CHEAT_NAME)_rosbuild.pdf
 
 
-$(CHEAT_NAME).pdf: $(CHEAT_NAME).tex $(PNG_FILES)
+$(CHEAT_NAME)_catkin.pdf: /tmp/$(CHEAT_NAME)_catkin.tex $(PNG_FILES)
 	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
+$(CHEAT_NAME)_rosbuild.pdf: /tmp/$(CHEAT_NAME)_rosbuild.tex $(PNG_FILES)
+	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
+
+/tmp/$(CHEAT_NAME)_catkin.tex: $(CHEAT_NAME).tex
+	cp $< $@
+/tmp/$(CHEAT_NAME)_rosbuild.tex: $(CHEAT_NAME).tex
+	sed 's@^\\catkintrue@%\\catkintrue@' $< | sed 's@^%\\catkinfalse@\\catkinfalse@'  > $@
 
 $(CHEAT_NAME).dvi: $(CHEAT_NAME).tex 
 	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
@@ -30,8 +37,8 @@ display: $(BASE_NAME).pdf
 	epstopdf $<
 
 clean:
-	rm -f $(CHEAT_NAME).ps $(CHEAT_NAME).dvi $(CHEAT_NAME).log \
-	      $(CHEAT_NAME).aux $(CHEAT_NAME).blg $(CHEAT_NAME).toc \
-              missfont.log $(CHEAT_NAME).bbl $(CHEAT_NAME).pdf \
-              $(CHEAT_NAME).out
+	rm -f $(CHEAT_NAME)_*.ps $(CHEAT_NAME)_*.dvi $(CHEAT_NAME)_*.log \
+	      $(CHEAT_NAME)_*.aux $(CHEAT_NAME)_*.blg $(CHEAT_NAME)_*.toc \
+              missfont.log $(CHEAT_NAME)_*.bbl $(CHEAT_NAME)_*.pdf \
+              $(CHEAT_NAME)_*.out
 
