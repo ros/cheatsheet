@@ -372,10 +372,12 @@ Us\=age:\\
 
 \vspace{-2.5 mm}
 \section{Logging Command-line Tools}
+\vspace{-0.5 mm}
 \subsection{\href{http://wiki.ros.org/rosbag}{rosbag}}
 This is a set of tools for recording from and playing back to ROS topics. It is intended to be high performance and avoids deserialization and reserializationof the messages.\\ 
 \vspace{1.5mm}
 {\bf rosbag record} will generate a ``.bag'' file with the contents of all topics that you pass to it. 
+\vspace{-1.5mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> Record all topics:\\
@@ -383,8 +385,9 @@ E\=x\=amples:\\
 \> Record select topics:\\
 \> \>\texttt{\$ rosbag record topic1 topic2}\\
 \end{tabbing}
-\vspace{-2.0mm}
+\vspace{-4.0mm}
 {\bf rosbag play} will take the contents of one or more bag file, and play them back in a time-synchronized fashion.
+\vspace{-1.5mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> Replay all messages without waiting:\\
@@ -395,39 +398,46 @@ E\=x\=amples:\\
 
 \vspace{-2.5 mm}
 \section{Graphical Tools}
+\vspace{-0.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt}{rqt}}
-Qt-based framework for ROS that can run all the \href{http://wiki.ros.org/rqt/Plugins}{existing GUI tools} as dockable windows within rqt.
-\includegraphics[width=.75\columnwidth]{rqt.png}
+Qt-based framework for ROS that can run all the \href{http://wiki.ros.org/rqt/Plugins}{existing GUI tools} as dockable windows within rqt.\\
+\vspace{1.5 mm}
+\includegraphics[width=.80\columnwidth]{rqt.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rqt} (and choose \underline{P}lugins from a menu)\\
 \end{tabbing}
 
-\vspace{-2.5 mm}
+\vspace{-3.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt\_dep}{rqt\_dep}}
 Visualize the ROS dependency graph.\\
 \vspace{1.5 mm}
-\includegraphics[width=.75\columnwidth]{rqt_dep.png}
+\includegraphics[width=.80\columnwidth]{rqt_dep.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_dep}\\
 \end{tabbing}
 
-\vspace{-2.5 mm}
+\vspace{-3.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt\_graph}{rqt\_graph}}
 Displays a graph of the ROS nodes that are currently running, as well as the ROS topics that connect them.\\
 \vspace{1.5 mm}
-\includegraphics[width=.75\columnwidth]{rqt_graph.png}
+\vspace{10 mm}
+\includegraphics[width=.80\columnwidth]{rqt_graph.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_graph}\\
 \end{tabbing}
 
-\vspace{-1.5 mm}
+\vspace{-3.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt\_plot}{rqt\_plot}}
 A tool for plotting data from one or more ROS topic fields using different plotting backends.\\
-\vspace{2.5 mm}
-\includegraphics[width=.75\columnwidth]{rqt_plot.png}
+\vspace{1.5 mm}
+\includegraphics[width=.80\columnwidth]{rqt_plot.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> To graph multiple data:\\
@@ -439,8 +449,9 @@ E\=x\=amples:\\
 \vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt\_bag}{rqt\_bag}}
 A tool for visualizing, inspecting, and replaying histories (bag files) of ROS messages.\\
-\vspace{2.5 mm}
-\includegraphics[width=.75\columnwidth]{rqt_bag.png}
+\vspace{1.5 mm}
+\includegraphics[width=.80\columnwidth]{rqt_bag.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_bag bag\_file.bag}\\
@@ -449,13 +460,15 @@ Us\=age:\\
 \vspace{-1.5 mm}
 \subsection{\href{http://wiki.ros.org/rqt\_console}{rqt\_console}}
 A tool for displaying and filtering messages published on rosout.\\
-\vspace{2.5 mm}
-\includegraphics[width=.75\columnwidth]{rqt_console.png}
+\vspace{1.5 mm}
+\includegraphics[width=.80\columnwidth]{rqt_console.png}
+\vspace{-1.5 mm}
 \begin{tabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_console}\\
 \end{tabbing}
 
+\vspace{1mm}
 \ifcatkin
 \section{catkin Build Tools}
 
@@ -463,12 +476,12 @@ Us\=age:\\
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin\_create\_pkg}}
 \vspace{-.5 mm}
 A tool to create ROS package.
-\vspace{-2.5 mm}
+\vspace{-1.5 mm}
 \begin{tabbing}
 U\=sage:\\
 \> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2]}\\
 \end{tabbing}
-\vspace{-10 mm}
+\vspace{-5.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ source /opt/ros/hydro/setup.bash}\\
@@ -477,12 +490,12 @@ E\=x\=amples:\\
 \> \texttt{\$ catkin\_create\_pkg beginner\_tutorials std\_msgs rospy roscpp}\\
 \end{tabbing}
 
-\vspace{-5.5 mm}
+\vspace{-4.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}}
 \vspace{-.5 mm}
 A tool to manage several SCM repositories based on a single workspace.
 definition file (.rosinstall).
-\vspace{-2.5 mm}
+\vspace{-1.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
@@ -492,11 +505,11 @@ E\=x\=amples:\\
 \> \texttt{\$ wstool update}\\
 \end{tabbing}
 
-\vspace{-5.5 mm}
+\vspace{-4.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make}}
 \vspace{-.5 mm}
 A tool to build code in a catkin workspace.
-\vspace{-2.5 mm}
+\vspace{-1.5 mm}
 \begin{tabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws}\\
