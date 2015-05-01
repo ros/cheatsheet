@@ -51,7 +51,7 @@
 
 % Turn off header and footer
 \pagestyle{empty}
- 
+
 
 % Redefine section commands to use less space
 \makeatletter
@@ -121,15 +121,18 @@
 \texttt{roscd} & Changes directories to a package or stack. \\
 \texttt{rosls} & Lists package or stack information. \\
 \texttt{\href{http://www.ros.org/wiki/catkin}{catkin\_create\_pkg}} & Creates a new ROS package. \\
-\texttt{\href{http://www.ros.org/wiki/rosdep}{rosdep}} & Installs ROS package system dependencies.\\
 \texttt{\href{http://www.ros.org/wiki/catkin}{catkin\_make}} & Builds a ROS Catkin package (Run at the root of your workspace).\\
+\texttt{\href{http://www.ros.org/wiki/rosdep}{rosdep}} & Installs ROS package system dependencies.\\
+\texttt{\href{http://www.ros.org/wiki/roscreate}{roscreate}-stack} & Creates a new ROS stack.\\
+\texttt{\href{http://www.ros.org/wiki/roscreate}{roscreate}-pkg} & Creates a new ROS package. \\
+\texttt{\href{http://www.ros.org/wiki/rosmake}{rosmake}} & Builds a ROS package.\\
 \texttt{\href{http://www.ros.org/wiki/roswtf}{roswtf}} & Displays a errors and warnings about a running ROS system or launch file.\\
 \texttt{\href{http://www.ros.org/wiki/rxdeps}{rxdeps}} & Displays package structure and dependencies.\\
 \end{tabular}
 
 \begin{tabbing}
 Us\=age:\\
-\> \texttt{\$ rospack find [package]}\\  
+\> \texttt{\$ rospack find [package]}\\
 \> \texttt{\$ roscd [package[/subdir]]}\\
 \> \texttt{\$ rosls [package[/subdir]]}\\
 \> \texttt{\$ catkin\_create\_pkg [package\_name]}\\
@@ -159,7 +162,7 @@ Us\=age:\\
 \subsection{\href{http://www.ros.org/wiki/rosmsg}{rosmsg/rossrv}}
 rosmsg/rossrv displays Message/Service (msg/srv) data structure definitions.\\
 Commands: \\
-\begin{tabular}{@{}p{\the\MyLen}%                                                                                         
+\begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{rosmsg show}    & Display the fields in the msg. \\
 \texttt{rosmsg users}    & Search for code using the msg. \\
@@ -197,14 +200,14 @@ E\=x\=ample:\\
 \subsection{\href{http://www.ros.org/wiki/rosnode}{rosnode}}
 Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
 \vspace{2.5 mm}
-Commands: \\ 
+Commands: \\
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{rosnode ping}    & Test connectivity to node. \\
 \texttt{rosnode list}    & List active nodes. \\
 \texttt{rosnode info}    & Print information about a node. \\
 \texttt{rosnode machine} & List nodes running on a particular machine. \\
-\texttt{rosnode kill}    & Kills a running node. 
+\texttt{rosnode kill}    & Kills a running node.
 \end{tabular}
 \begin{tabbing}
 E\=x\=amples:\\
@@ -213,7 +216,7 @@ E\=x\=amples:\\
 \> List nodes on a machine:\\
 \> \> \texttt{\$ rosnode machine aqy.local}\\
 \> Ping all nodes:\\
-\> \> \texttt{\$ rosnode ping --all} 
+\> \> \texttt{\$ rosnode ping --all}
 \end{tabbing}
 
 
@@ -235,7 +238,7 @@ E\=x\=amples:\\
 \subsection{\href{http://www.ros.org/wiki/rostopic}{rostopic}}
 A tool for displaying debug information about ROS \href{http://www.ros.org/wiki/Topics}{topics}, including publishers, subscribers, publishing rate, and messages.\\
 \vspace{2.5 mm}
-Commands: \\ 
+Commands: \\
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{rostopic bw}   & Display bandwidth used by topic. \\
@@ -244,7 +247,7 @@ Commands: \\
 \texttt{rostopic list}   & Print information about active topics. \\
 \texttt{rostopic pub}   & Publish data to topic. \\
 \texttt{rostopic type}   & Print topic type. \\
-\texttt{rostopic find}   & Find topics by type. 
+\texttt{rostopic find}   & Find topics by type.
 \end{tabular}
 \begin{tabbing}
 E\=x\=amples:\\
@@ -262,7 +265,7 @@ E\=x\=amples:\\
 \subsection{\href{http://www.ros.org/wiki/rosparam}{rosparam}}
 A tool for getting and setting ROS \href{http://www.ros.org/wiki/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
 \vspace{2.5 mm}
-Commands: \\ 
+Commands: \\
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{rosparam set}    & Set a parameter. \\
@@ -270,7 +273,7 @@ Commands: \\
 \texttt{rosparam load}   & Load parameters from a file. \\
 \texttt{rosparam dump}   & Dump parameters to a file. \\
 \texttt{rosparam delete} & Delete a parameter. \\
-\texttt{rosparam list}   & List parameter names. 
+\texttt{rosparam list}   & List parameter names.
 \end{tabular}
 \begin{tabbing}
 E\=x\=amples:\\
@@ -286,7 +289,7 @@ E\=x\=amples:\\
 \subsection{\href{http://www.ros.org/wiki/rosservice}{rosservice}}
 A tool for listing and querying ROS services.\\
 \vspace{2.5 mm}
-Commands: \\ 
+Commands: \\
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{rosservice list}  & Print information about active services. \\
@@ -295,7 +298,7 @@ Commands: \\
 \texttt{rosservice args}  & List the arguments of a service. \\
 \texttt{rosservice type}  & Print the service type. \\
 \texttt{rosservice uri}   & Print the service ROSRPC uri. \\
-\texttt{rosservice find}  & Find services by service type. 
+\texttt{rosservice find}  & Find services by service type.
 \end{tabular}
 \begin{tabbing}
 E\=x\=amples:\\
@@ -310,9 +313,9 @@ E\=x\=amples:\\
 \vspace{-2.5 mm}
 \section{Logging Command-line Tools}
 \subsection{\href{http://www.ros.org/wiki/rosbag}{rosbag}}
-This is a set of tools for recording from and playing back to ROS topics. It is intended to be high performance and avoids deserialization and reserializationof the messages.\\ 
+This is a set of tools for recording from and playing back to ROS topics. It is intended to be high performance and avoids deserialization and reserializationof the messages.\\
 \vspace{1.5mm}
-{\bf rosbag record} will generate a ``.bag'' file (so named for historical reasons) with the contents of all topics that you pass to it. 
+{\bf rosbag record} will generate a ``.bag'' file (so named for historical reasons) with the contents of all topics that you pass to it.
 \begin{tabbing}
 E\=x\=amples:\\
 \> Record all topics:\\
