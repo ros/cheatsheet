@@ -24,7 +24,7 @@ $(CHEAT_NAME)_rosbuild.pdf: /tmp/$(CHEAT_NAME)_rosbuild.tex $(PNG_FILES)
 	sed 's@^\\catkintrue@%\\catkintrue@' $< | sed 's@^%\\catkinfalse@\\catkinfalse@'  > $@
 	[ -e images/$(YOUR_LOGO).png ] && sed -i 's@^%\(\\includegraphics.*\){your_logo.eps}@\1{$(YOUR_LOGO).png}@' $@; echo "make YOUR_LOGO=your-logo to insert your log to cheatsheet"
 
-$(CHEAT_NAME).dvi: $(CHEAT_NAME).tex 
+$(CHEAT_NAME).dvi: $(CHEAT_NAME).tex
 	$(LATEX) $< && $(LATEX) $< && $(LATEX) $<
 
 $(CHEAT_NAME).ps: $(CHEAT_NAME).dvi
