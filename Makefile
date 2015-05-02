@@ -43,5 +43,5 @@ clean:
 	rm -f $(CHEAT_NAME)_*.ps $(CHEAT_NAME)_*.dvi $(CHEAT_NAME)_*.log \
 	      $(CHEAT_NAME)_*.aux $(CHEAT_NAME)_*.blg $(CHEAT_NAME)_*.toc \
               missfont.log $(CHEAT_NAME)_*.bbl $(CHEAT_NAME)_*.pdf \
-              $(CHEAT_NAME)_*.out
+              $(CHEAT_NAME)_*.out /tmp/$(CHEAT_NAME)_catkin.tex /tmp/$(CHEAT_NAME)_rosbuild.tex
 
