@@ -198,53 +198,7 @@ E\=x\=amples:\\
 \end{nstabbing}
 
 
-\section{Logging Tools}
-
-\subsection{\href{http://wiki.ros.org/rosbag}{rosbag}}
-A set of tools for recording and playing back of ROS topics.\\
-Commands: \\
-\begin{tabular}{p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{rosbag record}  & Record a bag file with specified topics. \\
-\texttt{rosbag play}  & Play content of one or more bag files. \\
-\texttt{rosbag compress}  & Compress one or more bag files. \\
-\texttt{rosbag decompress}  & Decompress one or more bag files. \\
-\texttt{rosbag filter}  & Filter the contents of the bag. \\
-\end{tabular}
-\begin{nstabbing}
-E\=x\=amples:\\
-\> Record select topics:\\
-\> \>\texttt{\$ rosbag record topic1 topic2}\\
-\> Replay all messages without waiting:\\
-\> \>\texttt{\$ rosbag play -a demo\_log.bag}\\
-\> Replay several bag files at once:\\
-\> \>\texttt{\$ rosbag play demo1.bag demo2.bag}\\
-\end{nstabbing}
-
-
 \section{Introspection and Command Tools}
-\subsection{\href{http://wiki.ros.org/rosmsg}{rosmsg/rossrv}}
-Displays Message/Service (msg/srv) data structure definitions.\\
-Commands: \\
-\begin{tabular}{p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{rosmsg show}    & Display the fields in the msg/srv. \\
-\texttt{rosmsg list}    & Display names of all msg/srv. \\
-\texttt{rosmsg md5}    & Display the msg/srv md5 sum. \\
-\texttt{rosmsg package} & List all the msg/srv in a package. \\
-\texttt{rosmsg packages}    & List all packages containing the msg/srv.
-\end{tabular}
-\begin{nstabbing}
-E\=x\=amples:\\
-\> Display the Pose msg:\\
-\> \> \texttt{\$ rosmsg show Pose}\\
-\> List the messages in the nav\_msgs package:\\
-\> \> \texttt{\$ rosmsg package nav\_msgs}\\
-\> List the packages using sensor\_msgs/CameraInfo:\\
-\> \> \texttt{\$ rosmsg packages sensor\_msgs/CameraInfo}
-\end{nstabbing}
-
-
 
 \subsection{\href{http://wiki.ros.org/rosnode}{rosnode}}
 Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
@@ -268,7 +222,6 @@ E\=x\=amples:\\
 \end{nstabbing}
 
 
-\vspace{10.5 mm}
 \subsection{\href{http://wiki.ros.org/rostopic}{rostopic}}
 A tool for displaying information about ROS \href{http://wiki.ros.org/Topics}{topics}, including publishers, subscribers, publishing rate, and messages.\\
 Commands: \\
@@ -295,28 +248,6 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rostopic type /topic\_name | rosmsg show}
 \end{nstabbing}
 
-\subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
-A tool for getting and setting ROS \href{http://wiki.ros.org/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
-Commands: \\
-\begin{tabular}{p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{rosparam set}    & Set a parameter. \\
-\texttt{rosparam get}    & Get a parameter. \\
-\texttt{rosparam load}   & Load parameters from a file. \\
-\texttt{rosparam dump}   & Dump parameters to a file. \\
-\texttt{rosparam delete} & Delete a parameter. \\
-\texttt{rosparam list}   & List parameter names.
-\end{tabular}
-\begin{nstabbing}
-E\=x\=amples:\\
-\> List all the parameters in a namespace:\\
-\> \>\texttt{\$ rosparam list /namespace}\\
-\> Setting a list with one as a string, integer, and float:\\
-\> \>\texttt{\$ rosparam set /foo "['1', 1, 1.0]"}\\
-\> Dump only the parameters in a specific namespace to file:\\
-\> \>\texttt{\$ rosparam dump dump.yaml /namespace}
-\end{nstabbing}
-
 \subsection{\href{http://wiki.ros.org/rosservice}{rosservice}}
 A tool for listing and querying ROS services.\\
 Commands: \\
@@ -340,137 +271,225 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rosservice find rospy\_tutorials/AddTwoInts}\\
 \end{nstabbing}
 
-\begin{center}
-     \Large{\textbf{ROS Indigo Cheatsheet}} \\
-\end{center}
+\subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
+A tool for getting and setting ROS \href{http://wiki.ros.org/Parameter Server}{parameters} on the parameter server using YAML-encoded files.\\
+Commands: \\
+\begin{tabular}{p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosparam set}    & Set a parameter. \\
+\texttt{rosparam get}    & Get a parameter. \\
+\texttt{rosparam load}   & Load parameters from a file. \\
+\texttt{rosparam dump}   & Dump parameters to a file. \\
+\texttt{rosparam delete} & Delete a parameter. \\
+\texttt{rosparam list}   & List parameter names.
+\end{tabular}
+\begin{nstabbing}
+E\=x\=amples:\\
+\> List all the parameters in a namespace:\\
+\> \>\texttt{\$ rosparam list /namespace}\\
+\> Setting a list with one as a string, integer, and float:\\
+\> \>\texttt{\$ rosparam set /foo "['1', 1, 1.0]"}\\
+\> Dump only the parameters in a specific namespace to file:\\
+\> \>\texttt{\$ rosparam dump dump.yaml /namespace}
+\end{nstabbing}
+
+\subsection{\href{http://wiki.ros.org/rosmsg}{rosmsg/rossrv}}
+Displays Message/Service (msg/srv) data structure definitions.\\
+Commands: \\
+\begin{tabular}{p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosmsg show}    & Display the fields in the msg/srv. \\
+\texttt{rosmsg list}    & Display names of all msg/srv. \\
+\texttt{rosmsg md5}    & Display the msg/srv md5 sum. \\
+\texttt{rosmsg package} & List all the msg/srv in a package. \\
+\texttt{rosmsg packages}    & List all packages containing the msg/srv.
+\end{tabular}
+\begin{nstabbing}
+E\=x\=amples:\\
+\> Display the Pose msg:\\
+\> \> \texttt{\$ rosmsg show Pose}\\
+\> List the messages in the nav\_msgs package:\\
+\> \> \texttt{\$ rosmsg package nav\_msgs}\\
+\> List the packages using sensor\_msgs/CameraInfo:\\
+\> \> \texttt{\$ rosmsg packages sensor\_msgs/CameraInfo}
+\end{nstabbing}
 
 \section{Logging Tools}
+\subsection{\href{http://wiki.ros.org/rosbag}{rosbag}}
+A set of tools for recording and playing back of ROS topics.\\
+Commands: \\
+\begin{tabular}{p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosbag record}  & Record a bag file with specified topics. \\
+\texttt{rosbag play}  & Play content of one or more bag files. \\
+\texttt{rosbag compress}  & Compress one or more bag files. \\
+\texttt{rosbag decompress}  & Decompress one or more bag files. \\
+\texttt{rosbag filter}  & Filter the contents of the bag. \\
+\end{tabular}
+\begin{nstabbing}
+E\=x\=amples:\\
+\> Record select topics:\\
+\> \>\texttt{\$ rosbag record topic1 topic2}\\
+\> Replay all messages without waiting:\\
+\> \>\texttt{\$ rosbag play -a demo\_log.bag}\\
+\> Replay several bag files at once:\\
+\> \>\texttt{\$ rosbag play demo1.bag demo2.bag}\\
+\end{nstabbing}
+
+\vspace{-2mm}
+%\section{tf Command-line Tools}
+\subsection{\href{http://wiki.ros.org/tf2/Tutorials/Introduction to tf2\#Using_tf_echo}{tf\_echo}}
+A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.\\
+\vspace*{-1mm}
+\begin{nstabbing}
+Us\=age:\\
+\> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
+E\=x\=amples:\\
+\> To echo the transform between /map and /odom:\\
+\> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
+\end{nstabbing}
+
+%\begin{center}
+%     \Large{\textbf{ROS Indigo Cheatsheet}} \\
+%\end{center}
+
+\vspace*{-3mm}
+\section{Logging Tools}
+\vspace*{-1mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_console}{rqt\_console}}
 A tool to display and filtering messages published on rosout.\\
-\includegraphics[width=\columnwidth]{rqt_console.png}
+\includegraphics[width=0.7\columnwidth]{rqt_console.png}
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_console}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
 
 \subsection{\href{http://wiki.ros.org/rqt_bag}{rqt\_bag}}
 A tool for visualizing, inspecting, and replaying bag files.\\
-\includegraphics[width=\columnwidth]{rqt_bag.png}
+\includegraphics[width=0.7\columnwidth]{rqt_bag.png}
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age, viewing:\\
 \> \texttt{\$ rqt\_bag bag\_file.bag}\\
 Us\=age, bagging:\\
 \> \texttt{\$ rqt\_bag *press the big red record button.*}\\
 \end{nstabbing}
-
+\vspace*{-3mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_logger_level}{rqt\_logger\_level}}
 Change the logger level of ROS nodes. This will increase or decrease the information they log to the screen and rqt\_console.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{viewing \$ rqt\_logger\_level}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
 \section{Introspection \& Command Tools}
-
+\vspace*{-1mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_topic}{rqt\_topic}}
 A tool for viewing published topics in real time.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Topic->Topic Monitor}\\
+\> \texttt{\footnotesize Plugin Menu->Topic->Topic Monitor}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_msg}{rqt\_msg}, \href{http://wiki.ros.org/rqt_srv}{rqt\_srv}, and \href{http://wiki.ros.org/rqt_action}{rqt\_action}}
 A tool for viewing available msgs, srvs, and actions.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Topic->Message Type Browser}\\
-\> \texttt{Plugin Menu->Service->Service Type Browser}\\
-\> \texttt{Plugin Menu->Action->Action Type Browser}\\
+\> \texttt{\footnotesize Plugin Menu->Topic->Message Type Browser}\\
+\> \texttt{\footnotesize Plugin Menu->Service->Service Type Browser}\\
+\> \texttt{\footnotesize Plugin Menu->Action->Action Type Browser}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
-\subsection{\href{http://wiki.ros.org/rqt_publisher}{rqt\_publisher}, and \href{http://wiki.ros.org/rqt_service_caller}{rqt\_service\_caller}}
-Tools for publishing messages and calling services.\\
+\subsection{\href{http://wiki.ros.org/rqt_top}{rqt\_top}}
+A tool for ROS specific process monitoring.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Topic->Message Publisher}\\
-\> \texttt{Plugin Menu->Service->Service Caller}\\
+\> \texttt{\footnotesize Plugin Menu->Introspection->Process Monitor}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
 \subsection{\href{http://wiki.ros.org/rqt_graph}{rqt\_graph}, and \href{http://wiki.ros.org/rqt_dep}{rqt\_dep}}
 Tools for displaying graphs of running ROS nodes with connecting topics and package dependancies respectively.\\
-\includegraphics[width=\columnwidth]{rqt_graph.png}
-\includegraphics[width=\columnwidth]{rqt_dep.png}
+\includegraphics[width=0.7\columnwidth]{rqt_graph.png}
+\includegraphics[width=0.7\columnwidth]{rqt_dep.png}
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_graph}\\
 \> \texttt{\$ rqt\_dep}\\
 \end{nstabbing}
+\vspace*{-3mm}
 
-\subsection{\href{http://wiki.ros.org/rqt_top}{rqt\_top}}
-A tool for ROS specific process monitoring.\\
+\subsection{\href{http://wiki.ros.org/rqt_publisher}{rqt\_publisher}, and \href{http://wiki.ros.org/rqt_service_caller}{rqt\_service\_caller}}
+Tools for publishing messages and calling services.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Introspection->Process Monitor}\\
+\> \texttt{\footnotesize Plugin Menu->Topic->Message Publisher}\\
+\> \texttt{\footnotesize Plugin Menu->Service->Service Caller}\\
 \end{nstabbing}
+\vspace*{-3mm}
+
+
 
 
 \subsection{\href{http://wiki.ros.org/rqt_reconfigure}{rqt\_reconfigure}}
 A tool for dynamically reconfiguring ROS parameters.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Configuration->Dynamic Reconfigure}\\
+\> \texttt{\footnotesize Plugin Menu->Configuration->Dynamic Reconfigure}\\
 \end{nstabbing}
-
+\vspace*{-3mm}
 
 \section{Development Environments}
 
 \subsection{\href{http://wiki.ros.org/rqt_shell}{rqt\_shell}, and \href{http://wiki.ros.org/rqt_py_console}{rqt\_py\_console}}
 Two tools for accessing an xterm shell and python console respectively.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt}\\
-\> \texttt{Plugin Menu->Miscellaneous Tools->Shell}\\
-\> \texttt{Plugin Menu->Miscellaneous Tools->Python Console}
+\> \texttt{\footnotesize Plugin Menu->Miscellaneous Tools->Shell}\\
+\> \texttt{\footnotesize Plugin Menu->Miscellaneous Tools->Python Console}
 \end{nstabbing}
+\vspace*{-1mm}
 
 \section{Data Visualization Tools}
 
-\subsection{\href{http://wiki.ros.org/tf2/Tutorials/Introduction to tf2\#Using_tf_echo}{tf\_echo}}
-A tool that prints the information about a particular transformation between a source\_frame and a target\_frame.\\
-\begin{nstabbing}
-Us\=age:\\
-\> \texttt{\$ rosrun tf tf\_echo <source\_frame> <target\_frame>}\\
-\end{nstabbing}
-\begin{nstabbing}
-E\=x\=amples:\\
-\> To echo the transform between /map and /odom:\\
-\> \>\texttt{\$ rosrun tf tf\_echo /map /odom}\\
-\end{nstabbing}
-
-
-
 \subsection{\href{http://wiki.ros.org/tf2/Tutorials/Introduction to tf2\#Using_view_frames}{view\_frames}}
 A tool for visualizing the full tree of coordinate transforms.\\
+\vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rosrun tf2\_tools view\_frames.py}\\
 \> \texttt{\$ evince frames.pdf}
 \end{nstabbing}
-
+\vspace*{-2mm}
 
 
 \subsection{\href{http://wiki.ros.org/rqt_plot}{rqt\_plot}}
 A tool for plotting data from ROS topic fields.\\
-\includegraphics[width=\columnwidth]{rqt_plot.png}
+\includegraphics[width=0.7\columnwidth]{rqt_plot.png}
+\vspace*{-1mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> To graph the data in different plots:\\
@@ -506,44 +525,48 @@ E\=x\=ample:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_init\_workspace}\\
 \end{nstabbing}
+\vspace{-3mm}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{Checkout an existing ROS package}}
 Get a local copy of the code for an existing package and keep it up to date using \href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}.
-
+\vspace{-1mm}
 \begin{nstabbing}
 E\=x\=amples:\\
-\> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
-\> \texttt{\$ wstool init}\\
-\> \texttt{\$ wstool set tutorials --git git://github.com/ros/ros\_tutorials.git}\\
-\> \texttt{\$ wstool update}\\
+\>\texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
+\>\texttt{\$ wstool init}\\
+\>\texttt{\$ wstool set tut --git git://github.com/ros/ros\_tutorials.git}\\
+\>\texttt{\$ wstool update}\\
 \end{nstabbing}
+\vspace{-3mm}
+
 
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{Create a new catkin ROS package}}
 
 Create a new ROS catkin package in an existing workspace with \href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin create package}. After using this you will need to edit the \href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt} to detail how you want your package built and add information to your \href{http://wiki.ros.org/catkin/package.xml}{package.xml}.
-
+\vspace{-1mm}
 \begin{nstabbing}
 U\=sage:\\
 \> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2]}\\
-\end{nstabbing}
-
-\begin{nstabbing}
 E\=x\=ample:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_create\_pkg tutorials std\_msgs rospy roscpp}\\
 \end{nstabbing}
+\vspace{-3mm}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/using_a_workspace}{Build all packages in a workspace}}
 Use \href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make} to build all the packages in the workspace and then source the setup.bash to add the workspace to the \href{http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH}{ROS\_PACKAGE\_PATH}.
+\vspace{-1mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws}\\
 \> \texttt{\$ \textasciitilde/catkin\_make}\\
 \> \texttt{\$ source devel/setup.bash}\\
 \end{nstabbing}
+\vspace{-3mm}
 
-\vspace{30mm}
+%\vspace{30mm}
+%\vspace{-10mm}
 
 \else % \ifcatkin
 
@@ -562,7 +585,7 @@ E\=x\=amples:\\
 Copyright \copyright\ 2015 Open Source Robotics Foundation
 
 Copyright \copyright\ 2010 Willow Garage
-\vspace{3000 mm}
+%\vspace{3000 mm}
 
 
 \end{multicols}
