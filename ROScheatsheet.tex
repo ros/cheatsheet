@@ -359,7 +359,7 @@ E\=x\=amples:\\
 
 \subsection{\href{http://wiki.ros.org/rqt_console}{rqt\_console}}
 A tool to display and filtering messages published on rosout.\\
-\includegraphics[width=0.7\columnwidth]{rqt_console.png}
+\includegraphics[width=0.6\columnwidth]{rqt_console.png}
 \vspace*{-1mm}
 \begin{nstabbing}
 Us\=age:\\
@@ -370,7 +370,7 @@ Us\=age:\\
 
 \subsection{\href{http://wiki.ros.org/rqt_bag}{rqt\_bag}}
 A tool for visualizing, inspecting, and replaying bag files.\\
-\includegraphics[width=0.7\columnwidth]{rqt_bag.png}
+\includegraphics[width=0.6\columnwidth]{rqt_bag.png}
 \vspace*{-1mm}
 \begin{nstabbing}
 Us\=age, viewing:\\
@@ -424,18 +424,6 @@ Us\=age:\\
 \end{nstabbing}
 \vspace*{-3mm}
 
-\subsection{\href{http://wiki.ros.org/rqt_graph}{rqt\_graph}, and \href{http://wiki.ros.org/rqt_dep}{rqt\_dep}}
-Tools for displaying graphs of running ROS nodes with connecting topics and package dependancies respectively.\\
-\includegraphics[width=0.7\columnwidth]{rqt_graph.png}
-\includegraphics[width=0.7\columnwidth]{rqt_dep.png}
-\vspace*{-1mm}
-\begin{nstabbing}
-Us\=age:\\
-\> \texttt{\$ rqt\_graph}\\
-\> \texttt{\$ rqt\_dep}\\
-\end{nstabbing}
-\vspace*{-3mm}
-
 \subsection{\href{http://wiki.ros.org/rqt_publisher}{rqt\_publisher}, and \href{http://wiki.ros.org/rqt_service_caller}{rqt\_service\_caller}}
 Tools for publishing messages and calling services.\\
 \vspace*{-1mm}
@@ -448,8 +436,6 @@ Us\=age:\\
 \vspace*{-3mm}
 
 
-
-
 \subsection{\href{http://wiki.ros.org/rqt_reconfigure}{rqt\_reconfigure}}
 A tool for dynamically reconfiguring ROS parameters.\\
 \vspace*{-1mm}
@@ -459,6 +445,20 @@ Us\=age:\\
 \> \texttt{\footnotesize Plugin Menu->Configuration->Dynamic Reconfigure}\\
 \end{nstabbing}
 \vspace*{-3mm}
+
+\subsection{\href{http://wiki.ros.org/rqt_graph}{rqt\_graph}, and \href{http://wiki.ros.org/rqt_dep}{rqt\_dep}}
+Tools for displaying graphs of running ROS nodes with connecting topics and package dependancies respectively.\\
+\includegraphics[width=0.45\columnwidth]{rqt_graph.png}
+\includegraphics[width=0.53\columnwidth]{rqt_dep.png}
+\vspace*{-3mm}
+\begin{nstabbing}
+Us\=age:\\
+\> \texttt{\$ rqt\_graph}\\
+\> \texttt{\$ rqt\_dep}\\
+\end{nstabbing}
+\vspace*{-3mm}
+
+
 
 \section{Development Environments}
 
@@ -488,7 +488,7 @@ Us\=age:\\
 
 \subsection{\href{http://wiki.ros.org/rqt_plot}{rqt\_plot}}
 A tool for plotting data from ROS topic fields.\\
-\includegraphics[width=0.7\columnwidth]{rqt_plot.png}
+\includegraphics[width=0.6\columnwidth]{rqt_plot.png}
 \vspace*{-1mm}
 \begin{nstabbing}
 E\=x\=amples:\\
@@ -499,16 +499,18 @@ E\=x\=amples:\\
 \> To graph multiple fields of a message:\\
 \> \>\texttt{\$ rqt\_plot /topic1/field1:field2:field3}\\
 \end{nstabbing}
+\vspace*{-2mm}
 
-
+\vspace*{-2mm}
 \subsection{\href{http://wiki.ros.org/rqt_image_view}{rqt\_image\_view}}
 A tool to display image topics.\\
-\includegraphics[width=\columnwidth]{rqt_image_view.png}
+\includegraphics[width=0.5\columnwidth]{rqt_image_view.png}
+\vspace*{-2mm}
 \begin{nstabbing}
 Us\=age:\\
 \> \texttt{\$ rqt\_image\_view}\\
 \end{nstabbing}
-
+\vspace*{-2mm}
 
 
 \vspace{1mm}
@@ -543,7 +545,7 @@ E\=x\=amples:\\
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{Create a new catkin ROS package}}
 
-Create a new ROS catkin package in an existing workspace with \href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin create package}. After using this you will need to edit the \href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt} to detail how you want your package built and add information to your \href{http://wiki.ros.org/catkin/package.xml}{package.xml}.
+Create a new ROS catkin package in an existing workspace with \href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin create package}.% After using this you will need to edit the \href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt} to detail how you want your package built and add information to your \href{http://wiki.ros.org/catkin/package.xml}{package.xml}.
 \vspace{-1mm}
 \begin{nstabbing}
 U\=sage:\\
@@ -564,6 +566,63 @@ E\=x\=amples:\\
 \> \texttt{\$ source devel/setup.bash}\\
 \end{nstabbing}
 \vspace{-3mm}
+
+%\vspace{-4.5 mm}
+\subsection{\href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt}}
+\vspace{-.5 mm}
+
+\begin{tabbing}
+Y\=our CMakeLists.tx\=t file MUST follow this format otherwise\\ your
+packages will not build correctly.\\
+\> \texttt{cmake\_minimum\_required()} Specify the name of the package\\
+\> \texttt{project()} Project name which can refer as \$\{PROJECT\_NAME\}\\
+\> \texttt{find\_package()} \> Find other packages needed for build\\
+%\texttt{add\_message\_files(), add\_service\_files(), add\_action\_files()} & Message/Service/Action Generators\\
+%\texttt{generate\_messages()} & Invoke message/service/action generation\\
+\> \texttt{catkin\_package()} \> Specify package build info export\\
+%\texttt{add\_library(), add\_executable(), target\_link\_libraries()} & Libraries/Executables to build\\
+%\texttt{catkin\_add\_gtest()} & Tests to build\\
+%\texttt{install()} & Install rules\\
+\end{tabbing}
+\vspace{-3.5mm}
+\vspace{-2mm}
+{\bf Build Executables and Libraries:}\\
+Use CMake function to build executable and library targets. These
+macro should call after \texttt{catkin\_package()} to use
+\texttt{catkin\_*} variables.
+\vspace{-3.5mm}
+\begin{tabbing}
+~ \texttt{include\_directories(include \$\{catkin\_INCLUDE\_DIRS\})}\\
+~ \texttt{add\_executable(hoge src/hoge.cpp)}\\
+~ \texttt{add\_library(fuga src/fuga.cpp)}\\
+~ \texttt{target\_link\_libraries(hoge fuga \$\{catkin\_LIBRARIES\})}\\
+\end{tabbing}
+\vspace{-3.5mm}
+\vspace{-2mm}
+{\bf Message generation:}\\
+%Your \texttt{package.xml} must contain a build and runtime dependency on
+%\texttt{message\_generation} and \texttt{message\_runtime} respectively.
+%There are \texttt{add\_message\_files(), add\_service\_files(),
+%  add\_action\_files()} macros to handle messages,services and actions
+There are \texttt{add\_\{message,service,action\}\_files()}
+macros to handle messages,services and actions
+respectively. They must call before \texttt{catkin\_package()}.
+\vspace{-3.5mm}
+\begin{tabbing}
+~ \texttt{find\_package(catkin COMPONENTS message\_generation std\_msgs)}\\
+~ \texttt{add\_message\_files(FILES Message1.msg)}\\
+~ \texttt{generate\_messages(DEPENDENCIES std\_msgs)}\\
+~ \texttt{catkin\_package(CATKIN\_DEPENDS message\_runtime)}\\
+\end{tabbing}
+\vspace{-5mm}
+If your package builds messages as well as executables that use them,
+you need to create an explicit dependency.
+\vspace{-3.5mm}
+\begin{tabbing}
+~ \texttt{add\_dependencies(hoge \$\{PROJECT\_NAME\}\_generate\_messages\_cpp)}\\
+\end{tabbing}
+
+\vspace{-5mm}
 
 %\vspace{30mm}
 %\vspace{-10mm}
