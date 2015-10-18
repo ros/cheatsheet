@@ -1,0 +1,12 @@
+dependencies:
+  pre:
+    - sudo apt-get update -qq
+    - sudo apt-get purge "texlive*"
+    - sudo apt-get install texlive-latex-base texlive-font-utils
+    - sudo apt-get install texlive-latex-extra
+general:
+  artifacts:
+    - "ROScheatsheet_catkin.pdf"
+test:
+  override:
+    - make YOUR_LOGO=tork_logo
