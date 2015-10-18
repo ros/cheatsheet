@@ -11,7 +11,7 @@ Building this document requires installing pdflatex
 
 On ubuntu you can get that with this command:
 ```
-sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-latex-base texlive-font-utils
 ```
 
 ### Make your changes
