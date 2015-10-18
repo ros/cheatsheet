@@ -1,0 +1,9 @@
+#   Original Author: William Woodall, Mani Monajjemi
+
+sudo: required
+dist: trusty
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y texlive-latex-base
+script:
+  - make
