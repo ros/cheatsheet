@@ -4,6 +4,6 @@ sudo: required
 dist: trusty
 install:
   - sudo apt-get update
-  - sudo apt-get install -y texlive-latex-base
+  - sudo apt-get install -y texlive-latex-base texlive-font-utils
 script:
   - make
