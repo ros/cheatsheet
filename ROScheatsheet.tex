@@ -103,6 +103,7 @@
 \setlength{\postmulticols}{1pt}
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
+\renewcommand{\arraystretch}{0.85}
 
 \begin{center}
      \Large{\textbf{ROS Indigo Cheatsheet}} \\
@@ -163,9 +164,9 @@ Us\=age:\\
 \> \texttt{\$ rqt\_dep [options]}\\
 \end{nstabbing}
 
-\vspace{-5mm}
+\vspace{-3mm}
 \section{Start-up and Process Launch Tools}
-\vspace{-2 mm}
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/roscore}{roscore}}
 The basis \href{http://wiki.ros.org/Nodes}{nodes} and programs for ROS-based systems. A roscore must be running for ROS nodes to communicate.\\
 \begin{nstabbing}
@@ -173,7 +174,7 @@ Us\=age:\\
 \> \texttt{\$ roscore}
 \end{nstabbing}
 
-\vspace{-2 mm}
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rosrun}{rosrun}}
 Runs a ROS package's executable with minimal typing.\\
 \begin{nstabbing}
@@ -184,8 +185,8 @@ Us\=age:\\
 Ex\=ample (runs \href{http://wiki.ros.org/turtlesim}{turtlesim}):\\
 \> \texttt{\$ rosrun turtlesim turtlesim\_node}\\
 \end{nstabbing}
-\vspace{-1 mm}
 
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/roslaunch}{roslaunch}}
 Starts a roscore (if needed), \href{http://wiki.ros.org/roslaunch/XML#Minimal_Example}{local nodes}, \href{http://wiki.ros.org/roslaunch/XML/machine}{remote nodes} via SSH, and sets parameter server \href{http://wiki.ros.org/roslaunch/XML#Setting_parameters}{parameters}.\\
 \begin{nstabbing}
@@ -201,7 +202,9 @@ E\=x\=amples:\\
 
 \section{Introspection and Command Tools}
 
+\vspace{-1mm}
 \subsection{\href{http://wiki.ros.org/rosnode}{rosnode}}
+\vspace{-1 mm}
 Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -212,18 +215,28 @@ Commands: \\
 \texttt{rosnode machine} & List nodes running on a machine. \\
 \texttt{rosnode kill}    & Kill a running node.
 \end{tabular}
+\begin{minipage}{0.5\columnwidth}
 \begin{nstabbing}
 E\=x\=amples:\\
-\> Kill all nodes:\\
-\> \> \texttt{\$ rosnode kill -a}\\
+\> Display information: \\
+\> \> \texttt{\$ rosnode info /name}\\
+\> Kill all nodes: \\
+\> \> \texttt{\$ rosnode kill -a}
+\end{nstabbing}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+\begin{nstabbing}
+ \= \=\\
 \> List nodes on a machine:\\
 \> \> \texttt{\$ rosnode machine aqy.local}\\
 \> Ping all nodes:\\
 \> \> \texttt{\$ rosnode ping --all}
 \end{nstabbing}
+\end{minipage}
 
-
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rostopic}{rostopic}}
+\vspace{-1 mm}
 A tool for displaying information about ROS \href{http://wiki.ros.org/Topics}{topics}, including publishers, subscribers, publishing rate, and messages.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -237,6 +250,7 @@ Commands: \\
 \texttt{rostopic pub}    & Publish data to topic. \\
 \texttt{rostopic type}   & Print topic type. \\
 \end{tabular}
+\vspace{-2 mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> Publish hello at 10 Hz:\\
@@ -249,7 +263,9 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rostopic type /topic\_name | rosmsg show}
 \end{nstabbing}
 
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rosservice}{rosservice}}
+\vspace{-1 mm}
 A tool for listing and querying ROS services.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -262,6 +278,7 @@ Commands: \\
 \texttt{rosservice uri}   & Print the service ROSRPC uri. \\
 \texttt{rosservice find}  & Find services by service type.
 \end{tabular}
+\vspace{-2 mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> Call a service from the command-line:\\
@@ -270,6 +287,24 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rosservice type add\_two\_ints | rossrv show}\\
 \> Display all services of a particular type:\\
 \> \>\texttt{\$ rosservice find rospy\_tutorials/AddTwoInts}\\
+\end{nstabbing}
+
+\vspace{-2 mm}
+\subsection{\href{http://wiki.ros.org/rosnode}{rosconsole}}
+\vspace{-1 mm}
+Tool for configuring the logger level of ROS nodes.\\
+Commands: \\
+\begin{tabular}{p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosconsole get}    & Display level of a logger. \\
+\texttt{rosconsole list}   & List loggers for a node. \\
+\texttt{rosconsole set}    & Set level for a logger.
+\end{tabular}
+\vspace{-1 mm}
+\begin{nstabbing}
+E\=x\=amples:\\
+\> Set debug logger level:\\
+\> \> \texttt{\$ rosconsole talker ros.roscpp\_tutorials debug}
 \end{nstabbing}
 
 \subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
