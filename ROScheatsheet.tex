@@ -6,6 +6,7 @@
 \usepackage[pdftex]{color,graphicx}
 \usepackage[landscape]{geometry}
 \usepackage{hyperref}
+\usepackage{setspace}
 \hypersetup{colorlinks=true, filecolor=black, linkcolor=black, urlcolor=blue, citecolor=black}
 \graphicspath{{./images/}}
 
@@ -102,6 +103,7 @@
 \setlength{\postmulticols}{1pt}
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
+\renewcommand{\arraystretch}{0.85}
 
 \begin{center}
      \Large{\textbf{ROS Indigo Cheatsheet}} \\
@@ -162,9 +164,9 @@ Us\=age:\\
 \> \texttt{\$ rqt\_dep [options]}\\
 \end{nstabbing}
 
-\vspace{-5mm}
+\vspace{-3mm}
 \section{Start-up and Process Launch Tools}
-\vspace{-2 mm}
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/roscore}{roscore}}
 The basis \href{http://wiki.ros.org/Nodes}{nodes} and programs for ROS-based systems. A roscore must be running for ROS nodes to communicate.\\
 \begin{nstabbing}
@@ -172,7 +174,7 @@ Us\=age:\\
 \> \texttt{\$ roscore}
 \end{nstabbing}
 
-\vspace{-2 mm}
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rosrun}{rosrun}}
 Runs a ROS package's executable with minimal typing.\\
 \begin{nstabbing}
@@ -183,8 +185,8 @@ Us\=age:\\
 Ex\=ample (runs \href{http://wiki.ros.org/turtlesim}{turtlesim}):\\
 \> \texttt{\$ rosrun turtlesim turtlesim\_node}\\
 \end{nstabbing}
-\vspace{-1 mm}
 
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/roslaunch}{roslaunch}}
 Starts a roscore (if needed), \href{http://wiki.ros.org/roslaunch/XML#Minimal_Example}{local nodes}, \href{http://wiki.ros.org/roslaunch/XML/machine}{remote nodes} via SSH, and sets parameter server \href{http://wiki.ros.org/roslaunch/XML#Setting_parameters}{parameters}.\\
 \begin{nstabbing}
@@ -200,7 +202,9 @@ E\=x\=amples:\\
 
 \section{Introspection and Command Tools}
 
+\vspace{-1mm}
 \subsection{\href{http://wiki.ros.org/rosnode}{rosnode}}
+\vspace{-1 mm}
 Displays debugging information about ROS nodes, including publications, subscriptions and connections.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -211,18 +215,28 @@ Commands: \\
 \texttt{rosnode machine} & List nodes running on a machine. \\
 \texttt{rosnode kill}    & Kill a running node.
 \end{tabular}
+\begin{minipage}{0.5\columnwidth}
 \begin{nstabbing}
 E\=x\=amples:\\
-\> Kill all nodes:\\
-\> \> \texttt{\$ rosnode kill -a}\\
+\> Display information: \\
+\> \> \texttt{\$ rosnode info /name}\\
+\> Kill all nodes: \\
+\> \> \texttt{\$ rosnode kill -a}
+\end{nstabbing}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+\begin{nstabbing}
+ \= \=\\
 \> List nodes on a machine:\\
 \> \> \texttt{\$ rosnode machine aqy.local}\\
 \> Ping all nodes:\\
 \> \> \texttt{\$ rosnode ping --all}
 \end{nstabbing}
+\end{minipage}
 
-
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rostopic}{rostopic}}
+\vspace{-1 mm}
 A tool for displaying information about ROS \href{http://wiki.ros.org/Topics}{topics}, including publishers, subscribers, publishing rate, and messages.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -236,6 +250,7 @@ Commands: \\
 \texttt{rostopic pub}    & Publish data to topic. \\
 \texttt{rostopic type}   & Print topic type. \\
 \end{tabular}
+\vspace{-2 mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> Publish hello at 10 Hz:\\
@@ -248,7 +263,9 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rostopic type /topic\_name | rosmsg show}
 \end{nstabbing}
 
+\vspace{-1 mm}
 \subsection{\href{http://wiki.ros.org/rosservice}{rosservice}}
+\vspace{-1 mm}
 A tool for listing and querying ROS services.\\
 Commands: \\
 \begin{tabular}{p{\the\MyLen}%
@@ -261,6 +278,7 @@ Commands: \\
 \texttt{rosservice uri}   & Print the service ROSRPC uri. \\
 \texttt{rosservice find}  & Find services by service type.
 \end{tabular}
+\vspace{-2 mm}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> Call a service from the command-line:\\
@@ -269,6 +287,24 @@ E\=x\=amples:\\
 \> \>\texttt{\$ rosservice type add\_two\_ints | rossrv show}\\
 \> Display all services of a particular type:\\
 \> \>\texttt{\$ rosservice find rospy\_tutorials/AddTwoInts}\\
+\end{nstabbing}
+
+\vspace{-2 mm}
+\subsection{\href{http://wiki.ros.org/rosnode}{rosconsole}}
+\vspace{-1 mm}
+Tool for configuring the logger level of ROS nodes.\\
+Commands: \\
+\begin{tabular}{p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{rosconsole get}    & Display level of a logger. \\
+\texttt{rosconsole list}   & List loggers for a node. \\
+\texttt{rosconsole set}    & Set level for a logger.
+\end{tabular}
+\vspace{-1 mm}
+\begin{nstabbing}
+E\=x\=amples:\\
+\> Set debug logger level:\\
+\> \> \texttt{\$ rosconsole talker ros.roscpp\_tutorials debug}
 \end{nstabbing}
 
 \subsection{\href{http://wiki.ros.org/rosparam}{rosparam}}
@@ -488,7 +524,7 @@ Us\=age:\\
 
 \subsection{\href{http://wiki.ros.org/rqt_plot}{rqt\_plot}}
 A tool for plotting data from ROS topic fields.\\
-\includegraphics[width=0.6\columnwidth]{rqt_plot.png}
+\includegraphics[width=0.74\columnwidth]{rqt_plot.png}
 \vspace*{-1mm}
 \begin{nstabbing}
 E\=x\=amples:\\
@@ -504,7 +540,7 @@ E\=x\=amples:\\
 \vspace*{-2mm}
 \subsection{\href{http://wiki.ros.org/rqt_image_view}{rqt\_image\_view}}
 A tool to display image topics.\\
-\includegraphics[width=0.5\columnwidth]{rqt_image_view.png}
+\includegraphics[width=0.74\columnwidth]{rqt_image_view.png}
 \vspace*{-2mm}
 \begin{nstabbing}
 Us\=age:\\
@@ -513,13 +549,13 @@ Us\=age:\\
 \vspace*{-2mm}
 
 
-\vspace{1mm}
 \ifcatkin
 \section{ROS Indigo Catkin Workspaces}
 
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{Create a catkin workspace}}
 Setup and use a new catkin workspace from scratch.
+{\setstretch{0.8}
 \begin{nstabbing}
 E\=x\=ample:\\
 \> \texttt{\$ source /opt/ros/indigo/setup.bash}\\
@@ -527,11 +563,13 @@ E\=x\=ample:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_init\_workspace}\\
 \end{nstabbing}
+}
 \vspace{-3mm}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{Checkout an existing ROS package}}
 Get a local copy of the code for an existing package and keep it up to date using \href{http://wiki.ros.org/catkin/Tutorials/workspace\_overlaying}{wstool}.
-\vspace{-1mm}
+
+{\setstretch{0.8}
 \begin{nstabbing}
 E\=x\=amples:\\
 \>\texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
@@ -539,14 +577,15 @@ E\=x\=amples:\\
 \>\texttt{\$ wstool set tut --git git://github.com/ros/ros\_tutorials.git}\\
 \>\texttt{\$ wstool update}\\
 \end{nstabbing}
-\vspace{-3mm}
+}\vspace{-3mm}
 
 
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{Create a new catkin ROS package}}
 
 Create a new ROS catkin package in an existing workspace with \href{http://wiki.ros.org/catkin/Tutorials/CreatingPackage}{catkin create package}.% After using this you will need to edit the \href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt} to detail how you want your package built and add information to your \href{http://wiki.ros.org/catkin/package.xml}{package.xml}.
-\vspace{-1mm}
+%\vspace{-1mm}
+{\setstretch{0.8}
 \begin{nstabbing}
 U\=sage:\\
 \> \texttt{\$ catkin\_create\_pkg <package\_name> [depend1] [depend2]}\\
@@ -554,23 +593,27 @@ E\=x\=ample:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws/src}\\
 \> \texttt{\$ catkin\_create\_pkg tutorials std\_msgs rospy roscpp}\\
 \end{nstabbing}
+}
 \vspace{-3mm}
 
 \subsection{\href{http://wiki.ros.org/catkin/Tutorials/using_a_workspace}{Build all packages in a workspace}}
 Use \href{http://wiki.ros.org/catkin/Tutorials/using\_a\_workspace}{catkin\_make} to build all the packages in the workspace and then source the setup.bash to add the workspace to the \href{http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH}{ROS\_PACKAGE\_PATH}.
-\vspace{-1mm}
+
+{\setstretch{0.8}
 \begin{nstabbing}
 E\=x\=amples:\\
 \> \texttt{\$ cd \textasciitilde/catkin\_ws}\\
-\> \texttt{\$ \textasciitilde/catkin\_make}\\
+\> \texttt{\$ catkin\_make}\\
 \> \texttt{\$ source devel/setup.bash}\\
 \end{nstabbing}
+}
 \vspace{-3mm}
 
 %\vspace{-4.5 mm}
 \subsection{\href{http://wiki.ros.org/catkin/CMakeLists.txt}{CMakeLists.txt}}
-\vspace{-.5 mm}
+%\vspace{-.5 mm}
 
+{\setstretch{0.8}
 \begin{tabbing}
 Y\=our CMakeLists.tx\=t file MUST follow this format otherwise\\ your
 packages will not build correctly.\\
@@ -584,21 +627,24 @@ packages will not build correctly.\\
 %\texttt{catkin\_add\_gtest()} & Tests to build\\
 %\texttt{install()} & Install rules\\
 \end{tabbing}
+}
 \vspace{-3.5mm}
-\vspace{-2mm}
+\vspace{-1mm}
 {\bf Build Executables and Libraries:}\\
 Use CMake function to build executable and library targets. These
 macro should call after \texttt{catkin\_package()} to use
 \texttt{catkin\_*} variables.
-\vspace{-3.5mm}
+\vspace{-1.5mm}
+{\setstretch{0.8}
 \begin{tabbing}
 ~ \texttt{include\_directories(include \$\{catkin\_INCLUDE\_DIRS\})}\\
 ~ \texttt{add\_executable(hoge src/hoge.cpp)}\\
 ~ \texttt{add\_library(fuga src/fuga.cpp)}\\
 ~ \texttt{target\_link\_libraries(hoge fuga \$\{catkin\_LIBRARIES\})}\\
 \end{tabbing}
+}
 \vspace{-3.5mm}
-\vspace{-2mm}
+\vspace{-1mm}
 {\bf Message generation:}\\
 %Your \texttt{package.xml} must contain a build and runtime dependency on
 %\texttt{message\_generation} and \texttt{message\_runtime} respectively.
@@ -607,17 +653,19 @@ macro should call after \texttt{catkin\_package()} to use
 There are \texttt{add\_\{message,service,action\}\_files()}
 macros to handle messages,services and actions
 respectively. They must call before \texttt{catkin\_package()}.
-\vspace{-3.5mm}
+\vspace{-1.5mm}
+{\setstretch{0.8}
 \begin{tabbing}
 ~ \texttt{find\_package(catkin COMPONENTS message\_generation std\_msgs)}\\
 ~ \texttt{add\_message\_files(FILES Message1.msg)}\\
 ~ \texttt{generate\_messages(DEPENDENCIES std\_msgs)}\\
 ~ \texttt{catkin\_package(CATKIN\_DEPENDS message\_runtime)}\\
 \end{tabbing}
+}
 \vspace{-5mm}
 If your package builds messages as well as executables that use them,
 you need to create an explicit dependency.
-\vspace{-3.5mm}
+\vspace{-2.5mm}
 \begin{tabbing}
 ~ \texttt{add\_dependencies(hoge \$\{PROJECT\_NAME\}\_generate\_messages\_cpp)}\\
 \end{tabbing}
@@ -633,9 +681,12 @@ you need to create an explicit dependency.
 
 \fi % \ifcatkin
 
-%\begin{flushright}
-%\includegraphics[height=.12\columnwidth]{ros_logo.eps}
-%\end{flushright}
+\begin{flushright}
+%\includegraphics[height=.12\columnwidth]{your_logo.eps}\hspace*{5mm}
+\includegraphics[height=.12\columnwidth]{ros_logo.eps}
+\end{flushright}
+
+\vspace{-5mm}
 
 \rule{0.3\linewidth}{0.25pt}
 
